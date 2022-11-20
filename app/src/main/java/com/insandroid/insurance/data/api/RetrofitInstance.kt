@@ -1,5 +1,6 @@
 package com.insandroid.insurance.data.api
 
+import com.insandroid.insurance.util.Constant.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -13,12 +14,12 @@ object RetrofitInstance {
         .build()
 
     private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl(MYONG_SIK_BASE_URL)
+        .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
 
-    val api : HomeFoodApi by lazy{
-        retrofit.create(HomeFoodApi::class.java)
+    val api : InsuranceApi by lazy{
+        retrofit.create(InsuranceApi::class.java)
     }
 }
