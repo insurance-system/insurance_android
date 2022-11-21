@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.insandroid.insurance.databinding.FragmentMineBinding
 
+//내 보험 화면
 class MineFragment  : Fragment(){
     private var _binding : FragmentMineBinding?= null
     private val binding : FragmentMineBinding

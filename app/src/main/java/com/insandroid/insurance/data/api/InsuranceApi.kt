@@ -6,6 +6,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 
+//보험 관련 API
 interface InsuranceApi {
 
     //보험 설계 POST API

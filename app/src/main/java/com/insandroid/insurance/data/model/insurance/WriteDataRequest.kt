@@ -1,5 +1,6 @@
 package com.insandroid.insurance.data.model.insurance
 
+//보험 설계 작성 Request Data
 data class WriteDataRequest(
     val insuranceName : String,
     val fee : Int,

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.insandroid.insurance.databinding.FragmentSettingBinding
 
+//설정 화면
 class SettingFragment : Fragment(){
     private var _binding : FragmentSettingBinding?= null
     private val binding : FragmentSettingBinding
