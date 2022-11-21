@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.insandroid.insurance.ui.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_write"
+            app:destination="@id/fragment_write" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_mine"
+        android:name="com.insandroid.insurance.ui.view.MineFragment"
+        android:label="fragment_mine"
+        tools:layout="@layout/fragment_mine" />
+    <fragment
+        android:id="@+id/fragment_setting"
+        android:name="com.insandroid.insurance.ui.view.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/fragment_write"
+        android:name="com.insandroid.insurance.ui.view.WriteFragment"
+        android:label="WriteFragment"
+        tools:layout="@layout/fragment_write"/>
+</navigation>
