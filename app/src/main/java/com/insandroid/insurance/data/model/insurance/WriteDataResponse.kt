@@ -1,5 +1,6 @@
 package com.insandroid.insurance.data.model.insurance
 
+//보험 설계 작성 Response Data
 data class WriteDataResponse(
     val code : Int,
 

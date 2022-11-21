@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.insandroid.insurance.databinding.FragmentHomeBinding
 
+//홈 화면
 class HomeFragment  : Fragment(){
     private var _binding : FragmentHomeBinding?= null
     private val binding : FragmentHomeBinding

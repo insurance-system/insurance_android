@@ -10,6 +10,7 @@ import com.insandroid.insurance.data.repository.InsuranceRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+//보험 관련 ViewModel
 class MainViewModel(
     private val insuranceRepository: InsuranceRepository
 ) : ViewModel() {

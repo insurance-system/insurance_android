@@ -6,7 +6,6 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -15,8 +14,8 @@ import com.insandroid.insurance.data.model.insurance.WriteDataRequest
 import com.insandroid.insurance.databinding.FragmentWriteBinding
 import com.insandroid.insurance.ui.viewmodel.MainViewModel
 import com.insandroid.insurance.util.MainActivity
-import kotlinx.coroutines.delay
 
+//보험 작성 화면
 class WriteFragment : Fragment(){
     private var _binding : FragmentWriteBinding?= null
     private val binding : FragmentWriteBinding
