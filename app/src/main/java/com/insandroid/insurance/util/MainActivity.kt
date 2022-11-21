@@ -3,12 +3,15 @@ package com.insandroid.insurance.util
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.insandroid.insurance.R
+import com.insandroid.insurance.data.repository.InsuranceRepositoryImpl
 import com.insandroid.insurance.databinding.ActivityMainBinding
 import com.insandroid.insurance.ui.viewmodel.MainViewModel
+import com.insandroid.insurance.ui.viewmodel.MainViewModelProviderFactory
 
 class MainActivity : AppCompatActivity() {
     private val binding : ActivityMainBinding by lazy {
@@ -20,6 +23,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        val insuranceRepository = InsuranceRepositoryImpl()
+        val factory = MainViewModelProviderFactory(insuranceRepository)
+        mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
 
         //네비게이션들을 담는 호스트
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.home_fragment_view) as NavHostFragment
