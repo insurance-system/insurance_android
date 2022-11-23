@@ -1,4 +1,4 @@
-package com.insandroid.insurance.ui.view
+package com.insandroid.insurance.ui.view.insurance
 
 import android.os.Bundle
 import android.os.Handler
