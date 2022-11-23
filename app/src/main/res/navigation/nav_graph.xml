@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_home"
-        android:name="com.insandroid.insurance.ui.view.HomeFragment"
+        android:name="com.insandroid.insurance.ui.view.insurance.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,17 +16,17 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
-        android:name="com.insandroid.insurance.ui.view.MineFragment"
+        android:name="com.insandroid.insurance.ui.view.insurance.MineFragment"
         android:label="fragment_mine"
         tools:layout="@layout/fragment_mine" />
     <fragment
         android:id="@+id/fragment_setting"
-        android:name="com.insandroid.insurance.ui.view.SettingFragment"
+        android:name="com.insandroid.insurance.ui.view.insurance.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/fragment_write"
-        android:name="com.insandroid.insurance.ui.view.WriteFragment"
+        android:name="com.insandroid.insurance.ui.view.insurance.WriteFragment"
         android:label="WriteFragment"
         tools:layout="@layout/fragment_write">
         <action
@@ -34,5 +34,28 @@
             app:destination="@id/fragment_home"
             app:popUpToInclusive="true"
             />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_join_first"
+        android:name="com.insandroid.insurance.ui.view.customer.JoinFirstFragment"
+        android:label="JoinFirstFragment"
+        tools:layout="@layout/fragment_join_first">
+        <action
+            android:id="@+id/action_fragment_join_first_to_fragment_join_second"
+            app:destination="@id/fragment_join_second" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_join_third"
+        android:name="com.insandroid.insurance.ui.view.customer.JoinThirdFragment"
+        android:label="JoinThirdFragment"
+        tools:layout="@layout/fragment_join_third"/>
+    <fragment
+        android:id="@+id/fragment_join_second"
+        android:name="com.insandroid.insurance.ui.view.customer.JoinSecondFragment"
+        android:label="JoinSecondFragment"
+        tools:layout="@layout/fragment_join_second">
+        <action
+            android:id="@+id/action_fragment_join_second_to_fragment_join_third"
+            app:destination="@id/fragment_join_third" />
     </fragment>
 </navigation>

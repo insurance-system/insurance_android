@@ -1,16 +1,15 @@
-package com.insandroid.insurance.ui.view
+package com.insandroid.insurance.ui.view.customer
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.insandroid.insurance.databinding.FragmentMineBinding
+import com.insandroid.insurance.databinding.FragmentJoinThirdBinding
 
-//내 보험 화면
-class MineFragment  : Fragment(){
-    private var _binding : FragmentMineBinding?= null
-    private val binding : FragmentMineBinding
+class JoinThirdFragment : Fragment(){
+    private var _binding : FragmentJoinThirdBinding?= null
+    private val binding : FragmentJoinThirdBinding
         get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +17,7 @@ class MineFragment  : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMineBinding.inflate(inflater, container, false)
+        _binding = FragmentJoinThirdBinding.inflate(inflater, container, false)
         return binding.root
     }
 
