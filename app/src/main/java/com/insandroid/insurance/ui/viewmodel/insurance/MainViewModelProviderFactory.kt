@@ -1,8 +1,8 @@
-package com.insandroid.insurance.ui.viewmodel
+package com.insandroid.insurance.ui.viewmodel.insurance
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.insandroid.insurance.data.repository.InsuranceRepository
+import com.insandroid.insurance.data.repository.insurance.InsuranceRepository
 
 class MainViewModelProviderFactory(
     private val insuranceRepository: InsuranceRepository

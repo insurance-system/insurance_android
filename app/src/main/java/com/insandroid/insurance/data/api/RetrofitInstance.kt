@@ -19,7 +19,7 @@ object RetrofitInstance {
         .client(client)
         .build()
 
-    val api : InsuranceApi by lazy{
+    val insuranceApi : InsuranceApi by lazy{
         retrofit.create(InsuranceApi::class.java)
     }
 }

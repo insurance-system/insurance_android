@@ -4,14 +4,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.insandroid.insurance.R
-import com.insandroid.insurance.data.repository.InsuranceRepositoryImpl
+import com.insandroid.insurance.data.repository.customer.CustomerRepositoryImpl
+import com.insandroid.insurance.data.repository.insurance.InsuranceRepositoryImpl
 import com.insandroid.insurance.databinding.ActivityMainBinding
-import com.insandroid.insurance.ui.viewmodel.MainViewModel
-import com.insandroid.insurance.ui.viewmodel.MainViewModelProviderFactory
+import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModel
+import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModelProviderFactory
+import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModelProviderFactory
 
 class MainActivity : AppCompatActivity() {
     private val binding : ActivityMainBinding by lazy {
@@ -20,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mainViewModel : MainViewModel
 
+    lateinit var customerViewModel: CustomerViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -27,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         val insuranceRepository = InsuranceRepositoryImpl()
         val factory = MainViewModelProviderFactory(insuranceRepository)
         mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
+
+        val customerRepository = CustomerRepositoryImpl()
+        val customerFactory = CustomerViewModelProviderFactory(customerRepository)
+        customerViewModel = ViewModelProvider(this, customerFactory)[CustomerViewModel::class.java]
 
         //네비게이션들을 담는 호스트
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.home_fragment_view) as NavHostFragment

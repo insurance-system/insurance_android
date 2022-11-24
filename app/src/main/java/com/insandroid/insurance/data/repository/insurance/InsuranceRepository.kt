@@ -1,4 +1,4 @@
-package com.insandroid.insurance.data.repository
+package com.insandroid.insurance.data.repository.insurance
 
 import com.insandroid.insurance.data.model.insurance.WriteDataRequest
 import com.insandroid.insurance.data.model.insurance.WriteDataResponse

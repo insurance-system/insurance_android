@@ -1,4 +1,4 @@
-package com.insandroid.insurance.ui.viewmodel
+package com.insandroid.insurance.ui.viewmodel.insurance
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.insandroid.insurance.data.model.insurance.WriteDataRequest
 import com.insandroid.insurance.data.model.insurance.WriteDataResponse
-import com.insandroid.insurance.data.repository.InsuranceRepository
+import com.insandroid.insurance.data.repository.insurance.InsuranceRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
