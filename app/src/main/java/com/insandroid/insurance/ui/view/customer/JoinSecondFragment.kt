@@ -31,6 +31,9 @@ class JoinSecondFragment  : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         customerViewModel = (activity as MainActivity).customerViewModel
+
+        println(customerViewModel.zipcode.value)
+
     }
 
     override fun onDestroyView() {

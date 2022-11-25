@@ -9,18 +9,46 @@ class CustomerViewModel(
     private val customerRepository: CustomerRepository
 ) : ViewModel() {
 
-    private val _currentInputId = MutableLiveData<String>("")
-    val currentInputId: LiveData<String> = _currentInputId
+    private val _inputId = MutableLiveData<String>("")
+    val inputId: LiveData<String> = _inputId
 
-    private val _currentInputPw = MutableLiveData<String>("")
-    val currentInputPw: LiveData<String> = _currentInputPw
+    private val _inputPw = MutableLiveData<String>("")
+    val inputPw: LiveData<String> = _inputPw
+
+    private val _inputName = MutableLiveData<String>("")
+    val inputName: LiveData<String> = _inputName
+
+    private val _inputAddress = MutableLiveData<String>("")
+    val inputAddress: LiveData<String> = _inputAddress
+
+    private val _detailAddress = MutableLiveData<String>("")
+    val detailAddress: LiveData<String> = _detailAddress
+
+    private val _zipcode = MutableLiveData<String>("")
+    val zipcode: LiveData<String> = _zipcode
 
     fun updateInputId(input: String){
-        _currentInputId.value = input
+        _inputId.value = input
     }
 
     fun updateInputPw(input: String){
-        _currentInputPw.value = input
+        _inputPw.value = input
+    }
+
+    fun updateInputName(input: String){
+        _inputName.value = input
+    }
+
+    fun updateInputAddress(input: String){
+        _inputAddress.value = input
+    }
+
+    fun updateDetailAddress(input: String){
+        _detailAddress.value = input
+    }
+
+    fun updateZipcode(input: String){
+        _zipcode.value = input
     }
 
 
