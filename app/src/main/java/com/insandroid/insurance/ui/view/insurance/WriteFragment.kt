@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.insandroid.insurance.R
 import com.insandroid.insurance.data.model.insurance.WriteDataRequest
 import com.insandroid.insurance.databinding.FragmentWriteBinding
-import com.insandroid.insurance.ui.viewmodel.MainViewModel
+import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
 import com.insandroid.insurance.util.MainActivity
 
 //보험 작성 화면
