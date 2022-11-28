@@ -119,6 +119,8 @@
         android:text="다음"
         android:textSize="14sp"
         android:paddingVertical="6dp"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_join_bt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

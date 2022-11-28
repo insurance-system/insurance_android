@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.insandroid.insurance.R
 import com.insandroid.insurance.databinding.FragmentJoinFirstBinding
 import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModel
 import com.insandroid.insurance.util.MainActivity
