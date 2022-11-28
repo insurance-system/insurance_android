@@ -42,7 +42,7 @@ class JoinFirstFragment  : Fragment(){
             ) {
                 Toast.makeText(requireContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }else {
-                customerViewModel.updateInputId(binding.firstId.text.toString())
+                customerViewModel.updateInputId(binding.firstId.text.toString().toInt())
                 customerViewModel.updateInputPw(binding.firstPassword.text.toString())
                 customerViewModel.updateInputName(binding.firstName.text.toString())
                 customerViewModel.updateInputAddress(binding.firstAddress.text.toString())

@@ -72,8 +72,8 @@ class WriteFragment : Fragment(){
         //암
         binding.writeKindRg.setOnCheckedChangeListener { radioGroup, i ->
             when(i){
-                R.id.kind_2 -> kind = "생명"
-                R.id.kind_1 -> kind = "비생명"
+                R.id.kind_2 -> kind = "LIFE"
+                R.id.kind_1 -> kind = "NON_LIFE"
             }
         }
 

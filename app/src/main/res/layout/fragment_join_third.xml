@@ -1,6 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/second_ssn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="주민번호 입력"
+        android:paddingBottom="16dp"
+        android:textSize="14sp"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="18dp"
+        android:layout_marginHorizontal="24dp"/>
+
+    <TextView
+        android:id="@+id/write_smoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="담배 하루에 피우는 정도"
+        app:layout_constraintTop_toBottomOf="@id/second_ssn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/write_smoke_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/write_smoke"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="20dp"
+        >
+        <RadioButton android:id="@+id/smoke_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한 갑 이상"
+            />
+
+        <RadioButton android:id="@+id/smoke_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한 갑 정도"
+            />
+
+        <RadioButton android:id="@+id/smoke_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한 갑 미만"
+            />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/write_drink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="술 얼마나?"
+        app:layout_constraintTop_toBottomOf="@id/write_smoke_rg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="23dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/write_drink_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/write_drink"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="20dp"
+        >
+        <RadioButton android:id="@+id/drink_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A"
+            />
+
+        <RadioButton android:id="@+id/drink_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B"
+            />
+
+        <RadioButton android:id="@+id/drink_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C"
+            />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/write_cancer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="암 경험?"
+        app:layout_constraintTop_toBottomOf="@id/write_drink_rg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="23dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/write_cancer_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/write_cancer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="20dp"
+        >
+        <RadioButton android:id="@+id/cancer_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A"
+            />
+
+        <RadioButton android:id="@+id/cancer_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B"
+            />
+
+        <RadioButton android:id="@+id/cancer_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C"
+            />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/write_kind_of"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="보험 종류"
+        app:layout_constraintTop_toBottomOf="@id/write_cancer_rg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="23dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/write_kind_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/write_kind_of"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="20dp"
+        >
+        <RadioButton android:id="@+id/kind_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="생명보험"
+            />
+
+        <RadioButton android:id="@+id/kind_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비생명보험"
+            />
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원 가입 완료"
+        android:textSize="14sp"
+        android:paddingVertical="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="69dp"
+        android:layout_marginBottom="20dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
