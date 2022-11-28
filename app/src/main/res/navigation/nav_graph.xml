@@ -48,7 +48,11 @@
         android:id="@+id/fragment_join_third"
         android:name="com.insandroid.insurance.ui.view.customer.JoinThirdFragment"
         android:label="JoinThirdFragment"
-        tools:layout="@layout/fragment_join_third"/>
+        tools:layout="@layout/fragment_join_third">
+        <action
+            android:id="@+id/action_fragment_join_third_to_fragment_home"
+            app:destination="@id/fragment_home" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_join_second"
         android:name="com.insandroid.insurance.ui.view.customer.JoinSecondFragment"

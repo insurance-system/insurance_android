@@ -1,13 +1,18 @@
-package com.insandroid.insurance.data.repository.customer
+package com.insandroid.insurance.data.api
 
 import com.insandroid.insurance.data.model.customer.JoinDataRequest
 import com.insandroid.insurance.data.model.customer.JoinDataResponse
 import retrofit2.Response
+import retrofit2.http.Body
+import retrofit2.http.POST
 
-interface CustomerRepository {
+//보험 관련 API
+interface CustomerApi {
 
-    //보험 설계 작성 POST API
+    //보험 설계 POST API
+    @POST("/customer/")
     suspend fun customerJoin(
-        joinDataRequest: JoinDataRequest
+        @Body body : JoinDataRequest
     ) : Response<JoinDataResponse>
+
 }
