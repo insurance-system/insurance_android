@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_join_first">
+    app:startDestination="@id/fragment_splash">
 
     <fragment
         android:id="@+id/fragment_home"
@@ -61,5 +61,23 @@
         <action
             android:id="@+id/action_fragment_join_second_to_fragment_join_third"
             app:destination="@id/fragment_join_third" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_splash"
+        android:name="com.insandroid.insurance.util.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_fragment_splash_to_fragment_login"
+            app:destination="@id/fragment_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.insandroid.insurance.ui.view.customer.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_fragment_login_to_fragment_home"
+            app:destination="@id/fragment_home" />
     </fragment>
 </navigation>

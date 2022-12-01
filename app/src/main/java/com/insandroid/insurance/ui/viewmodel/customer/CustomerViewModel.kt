@@ -114,11 +114,12 @@ class CustomerViewModel(
         _drink.value = input
     }
 
+    //회원가입
     private val _resultJoin = MutableLiveData<JoinDataResponse>()
     val resultJoin : LiveData<JoinDataResponse>
         get() = _resultJoin
 
-    //보험 설계 작성 POST API
+    //회원가입 API
     fun customerJoin(joinDataRequest: JoinDataRequest) = viewModelScope.launch(Dispatchers.IO) {
         val response = customerRepository.customerJoin(joinDataRequest)
 
