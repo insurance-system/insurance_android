@@ -16,6 +16,20 @@ class CustomerViewModel(
     private val customerRepository: CustomerRepository
 ) : ViewModel() {
 
+    //회원가입
+    private val _resultJoin = MutableLiveData<JoinDataResponse>()
+    val resultJoin : LiveData<JoinDataResponse>
+        get() = _resultJoin
+
+    //회원가입 API
+    fun customerJoin(joinDataRequest: JoinDataRequest) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.customerJoin(joinDataRequest)
+
+        if(response.code() == 200){
+            _resultJoin.postValue(response.body())
+        }
+    }
+
     private val _inputId = MutableLiveData<Int>()
     val inputId: LiveData<Int> = _inputId
 
@@ -114,18 +128,5 @@ class CustomerViewModel(
         _drink.value = input
     }
 
-    //회원가입
-    private val _resultJoin = MutableLiveData<JoinDataResponse>()
-    val resultJoin : LiveData<JoinDataResponse>
-        get() = _resultJoin
-
-    //회원가입 API
-    fun customerJoin(joinDataRequest: JoinDataRequest) = viewModelScope.launch(Dispatchers.IO) {
-        val response = customerRepository.customerJoin(joinDataRequest)
-
-        if(response.code() == 200){
-            _resultJoin.postValue(response.body())
-        }
-    }
 
 }
