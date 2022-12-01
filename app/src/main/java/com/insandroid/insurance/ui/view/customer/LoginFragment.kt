@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.insandroid.insurance.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment(){
@@ -19,6 +20,22 @@ class LoginFragment : Fragment(){
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //로그인 버튼
+        binding.signInLoginBt.setOnClickListener {
+            val action = LoginFragmentDirections.actionFragmentLoginToFragmentHome()
+            findNavController().navigate(action)
+        }
+
+        //회원가입 버튼
+        binding.loginToJoinTv.setOnClickListener {
+            val action = LoginFragmentDirections.actionFragmentLoginToFragmentJoinFirst()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
