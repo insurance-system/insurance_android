@@ -32,7 +32,7 @@ class HomeFragment  : Fragment(){
             findNavController().navigate(action)
         }
 
-        //상담 대기 신규 고객 명단 조회 버튼
+        //상담 대기 신규 고객 명단 조회
         binding.homeNewCustomerGetLl.setOnClickListener {
             val action = HomeFragmentDirections.actionFragmentHomeToFragmentWorkNewCustomer()
             findNavController().navigate(action)
@@ -41,6 +41,24 @@ class HomeFragment  : Fragment(){
         //영업 교육 강의 업로드
         binding.homeEduUploadLl.setOnClickListener {
             val action = HomeFragmentDirections.actionFragmentHomeToWorkEduUploadFragment()
+            findNavController().navigate(action)
+        }
+
+        //강의 자료 리스트 출력
+        binding.homeEduPrintLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentWorkEduPrint()
+            findNavController().navigate(action)
+        }
+
+        //보험 계약 상태
+        binding.homeInsStateLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentWorkInsState()
+            findNavController().navigate(action)
+        }
+
+        //보험 만기 고객 조회
+        binding.homeLastCustomerGetLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentWorkLastCustomer()
             findNavController().navigate(action)
         }
     }
