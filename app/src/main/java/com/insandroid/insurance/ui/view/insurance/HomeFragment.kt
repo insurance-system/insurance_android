@@ -26,8 +26,21 @@ class HomeFragment  : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //보험 설계 버튼
         binding.fabFavorite.setOnClickListener {
             val action = HomeFragmentDirections.actionFragmentHomeToFragmentWrite()
+            findNavController().navigate(action)
+        }
+
+        //상담 대기 신규 고객 명단 조회 버튼
+        binding.homeNewCustomerGetLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentWorkNewCustomer()
+            findNavController().navigate(action)
+        }
+
+        //영업 교육 강의 업로드
+        binding.homeEduUploadLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToWorkEduUploadFragment()
             findNavController().navigate(action)
         }
     }

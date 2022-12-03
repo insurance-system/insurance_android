@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_fragment_home_to_fragment_write"
             app:destination="@id/fragment_write" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_new_customer"
+            app:destination="@id/fragment_work_new_customer" />
+        <action
+            android:id="@+id/action_fragment_home_to_workEduUploadFragment"
+            app:destination="@id/fragment_work_edu_upload" />
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
@@ -85,4 +91,14 @@
             android:id="@+id/action_fragment_login_to_fragment_join_first"
             app:destination="@id/fragment_join_first" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_work_new_customer"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkNewCustomerFragment"
+        android:label="WorkNewCustomerFragment"
+        tools:layout="@layout/fragment_work_new_customer"/>
+    <fragment
+        android:id="@+id/fragment_work_edu_upload"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkEduUploadFragment"
+        android:label="WorkEduUploadFragment"
+        tools:layout="@layout/fragment_work_edu_upload"/>
 </navigation>
