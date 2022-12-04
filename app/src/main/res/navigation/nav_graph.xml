@@ -28,6 +28,15 @@
         <action
             android:id="@+id/action_fragment_home_to_fragment_work_last_customer"
             app:destination="@id/fragment_work_last_customer" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_not_customer"
+            app:destination="@id/fragment_work_not_customer" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_sos_check"
+            app:destination="@id/fragment_work_sos_check" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_reward"
+            app:destination="@id/fragment_work_reward" />
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
@@ -127,4 +136,19 @@
         android:name="com.insandroid.insurance.ui.view.insurance.WorkLastCustomerFragment"
         android:label="WorkLastCustomerFragment"
         tools:layout="@layout/fragment_work_last_customer"/>
+    <fragment
+        android:id="@+id/fragment_work_not_customer"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkNotCustomerFragment"
+        android:label="WorkNotCustomerFragment"
+        tools:layout="@layout/fragment_work_not_customer"/>
+    <fragment
+        android:id="@+id/fragment_work_reward"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkRewardFragment"
+        android:label="WorkRewardFragment"
+        tools:layout="@layout/fragment_work_reward"/>
+    <fragment
+        android:id="@+id/fragment_work_sos_check"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkSosCheckFragment"
+        android:label="WorkSosCheckFragment"
+        tools:layout="@layout/fragment_work_sos_check"/>
 </navigation>

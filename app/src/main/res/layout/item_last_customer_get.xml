@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/home_food_stroke"
     android:layout_marginHorizontal="17dp">
-
+<!--만기, 미납고객 조회-->
     <TextView
         android:id="@+id/customer_name"
         android:text="고객이름"
