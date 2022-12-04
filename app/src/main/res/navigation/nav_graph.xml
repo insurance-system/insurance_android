@@ -19,6 +19,24 @@
         <action
             android:id="@+id/action_fragment_home_to_workEduUploadFragment"
             app:destination="@id/fragment_work_edu_upload" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_edu_print"
+            app:destination="@id/fragment_work_edu_print" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_ins_state"
+            app:destination="@id/fragment_work_ins_state" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_last_customer"
+            app:destination="@id/fragment_work_last_customer" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_not_customer"
+            app:destination="@id/fragment_work_not_customer" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_sos_check"
+            app:destination="@id/fragment_work_sos_check" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_reward"
+            app:destination="@id/fragment_work_reward" />
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
@@ -86,7 +104,9 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_fragment_login_to_fragment_home"
-            app:destination="@id/fragment_home" />
+            app:destination="@id/fragment_home"
+            app:popUpTo="@id/fragment_login"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_fragment_login_to_fragment_join_first"
             app:destination="@id/fragment_join_first" />
@@ -101,4 +121,34 @@
         android:name="com.insandroid.insurance.ui.view.insurance.WorkEduUploadFragment"
         android:label="WorkEduUploadFragment"
         tools:layout="@layout/fragment_work_edu_upload"/>
+    <fragment
+        android:id="@+id/fragment_work_edu_print"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkEduPrintFragment"
+        android:label="WorkEduPrintFragment"
+        tools:layout="@layout/fragment_work_edu_print"/>
+    <fragment
+        android:id="@+id/fragment_work_ins_state"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkInsStateFragment"
+        android:label="WorkInsStateFragment"
+        tools:layout="@layout/fragment_work_ins_state"/>
+    <fragment
+        android:id="@+id/fragment_work_last_customer"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkLastCustomerFragment"
+        android:label="WorkLastCustomerFragment"
+        tools:layout="@layout/fragment_work_last_customer"/>
+    <fragment
+        android:id="@+id/fragment_work_not_customer"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkNotCustomerFragment"
+        android:label="WorkNotCustomerFragment"
+        tools:layout="@layout/fragment_work_not_customer"/>
+    <fragment
+        android:id="@+id/fragment_work_reward"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkRewardFragment"
+        android:label="WorkRewardFragment"
+        tools:layout="@layout/fragment_work_reward"/>
+    <fragment
+        android:id="@+id/fragment_work_sos_check"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkSosCheckFragment"
+        android:label="WorkSosCheckFragment"
+        tools:layout="@layout/fragment_work_sos_check"/>
 </navigation>

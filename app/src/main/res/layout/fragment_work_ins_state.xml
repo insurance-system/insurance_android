@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/worker_ins_state_tv"
+        android:text="보험 계약 상태"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/worker_last_contract_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/worker_ins_state_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="계약 기간 만료 임박 계약 리스트 출력"
+            android:textSize="20sp"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/setting_divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E4E4E7"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/worker_last_contract_ll"/>
+
+    <LinearLayout
+        android:id="@+id/worker_last_money_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/setting_divider1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보험 납부 기간 만료 임박 계약 리스트 출력"
+            android:textSize="20sp"
+            />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

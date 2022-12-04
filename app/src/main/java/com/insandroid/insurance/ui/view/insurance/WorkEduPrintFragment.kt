@@ -5,12 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
+import com.insandroid.insurance.databinding.FragmentWorkEduPrintBinding
+import com.insandroid.insurance.databinding.FragmentWorkEduUploadBinding
 
-//상담 대기 신규 고객 명단 조회 뷰
-class WorkNewCustomerFragment: Fragment(){
-    private var _binding : FragmentWorkNewCustomerBinding?= null
-    private val binding : FragmentWorkNewCustomerBinding
+//강의 자료 출력 뷰
+class WorkEduPrintFragment : Fragment(){
+    private var _binding : FragmentWorkEduPrintBinding?= null
+    private val binding : FragmentWorkEduPrintBinding
         get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +19,7 @@ class WorkNewCustomerFragment: Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentWorkNewCustomerBinding.inflate(inflater, container, false)
+        _binding = FragmentWorkEduPrintBinding.inflate(inflater, container, false)
         return binding.root
     }
 

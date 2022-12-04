@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.insandroid.insurance.databinding.FragmentWorkEduUploadBinding
 import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
 
+//영업 교육 강의 업로드 뷰
 class WorkEduUploadFragment : Fragment(){
     private var _binding : FragmentWorkEduUploadBinding?= null
     private val binding : FragmentWorkEduUploadBinding

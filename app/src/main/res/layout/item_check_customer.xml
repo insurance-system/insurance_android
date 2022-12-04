@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/home_food_stroke"
+    android:layout_marginHorizontal="17dp">
+<!--만기, 미납고객 조회-->
+    <TextView
+        android:id="@+id/customer_information"
+        android:text="고객이름, 흡연, 음주, 암"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textFontWeight="700"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/customer_ins_information"
+        android:text="보험이름, 보험종류, 청구비"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textFontWeight="700"
+        app:layout_constraintTop_toBottomOf="@+id/customer_information"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <TextView
+        android:id="@+id/ins_join"
+        android:text="보험가입조건 흡연, 음주, 암"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textFontWeight="700"
+        app:layout_constraintTop_toBottomOf="@+id/customer_ins_information"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

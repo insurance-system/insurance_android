@@ -5,12 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.insandroid.insurance.databinding.FragmentWorkInsStateBinding
 import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
 
-//상담 대기 신규 고객 명단 조회 뷰
-class WorkNewCustomerFragment: Fragment(){
-    private var _binding : FragmentWorkNewCustomerBinding?= null
-    private val binding : FragmentWorkNewCustomerBinding
+//보험 계약 상태
+class WorkInsStateFragment : Fragment() {
+    private var _binding: FragmentWorkInsStateBinding? = null
+    private val binding: FragmentWorkInsStateBinding
         get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +19,7 @@ class WorkNewCustomerFragment: Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentWorkNewCustomerBinding.inflate(inflater, container, false)
+        _binding = FragmentWorkInsStateBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -26,5 +27,4 @@ class WorkNewCustomerFragment: Fragment(){
         _binding = null
         super.onDestroyView()
     }
-
 }

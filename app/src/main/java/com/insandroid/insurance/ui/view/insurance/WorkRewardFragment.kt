@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
+import com.insandroid.insurance.databinding.FragmentWorkNotCustomerBinding
+import com.insandroid.insurance.databinding.FragmentWorkRewardBinding
+import com.insandroid.insurance.databinding.FragmentWorkSosCheckBinding
 
-//상담 대기 신규 고객 명단 조회 뷰
-class WorkNewCustomerFragment: Fragment(){
-    private var _binding : FragmentWorkNewCustomerBinding?= null
-    private val binding : FragmentWorkNewCustomerBinding
+//보상금 심사 뷰
+class WorkRewardFragment: Fragment(){
+    private var _binding : FragmentWorkRewardBinding?= null
+    private val binding : FragmentWorkRewardBinding
         get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +21,7 @@ class WorkNewCustomerFragment: Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentWorkNewCustomerBinding.inflate(inflater, container, false)
+        _binding = FragmentWorkRewardBinding.inflate(inflater, container, false)
         return binding.root
     }
 
