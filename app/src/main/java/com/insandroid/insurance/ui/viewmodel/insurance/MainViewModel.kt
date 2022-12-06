@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.insandroid.insurance.data.model.insurance.InsuranceGetLecture
 import com.insandroid.insurance.data.model.insurance.WriteDataRequest
 import com.insandroid.insurance.data.model.insurance.WriteDataResponse
 import com.insandroid.insurance.data.repository.insurance.InsuranceRepository
@@ -27,4 +28,19 @@ class MainViewModel(
             _resultWrite.postValue(response.body())
         }
     }
+
+    private val _getLecture = MutableLiveData<InsuranceGetLecture>()
+    val getLecture : LiveData<InsuranceGetLecture>
+        get() = _getLecture
+
+    //보험 설계 작성 POST API
+    fun getLecture() = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getLecture()
+
+        if(response.isSuccessful){
+            _getLecture.postValue(response.body())
+        }
+    }
+
+
 }
