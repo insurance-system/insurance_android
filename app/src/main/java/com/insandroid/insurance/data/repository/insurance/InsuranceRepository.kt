@@ -1,5 +1,6 @@
 package com.insandroid.insurance.data.repository.insurance
 
+import com.insandroid.insurance.data.model.insurance.InsuranceGetLecture
 import com.insandroid.insurance.data.model.insurance.WriteDataRequest
 import com.insandroid.insurance.data.model.insurance.WriteDataResponse
 import retrofit2.Response
@@ -11,4 +12,6 @@ interface InsuranceRepository {
     suspend fun insuranceWrite(
         writeDataRequest: WriteDataRequest
     ) : Response<WriteDataResponse>
+
+    suspend fun getLecture() : Response<InsuranceGetLecture>
 }
