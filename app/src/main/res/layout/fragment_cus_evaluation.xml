@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/cus_consult_day_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="상담 일자 : 2021/12/22"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/cus_consult_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="윤성식"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:id="@+id/cus_consult_satisfy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="만족도"
+        app:layout_constraintTop_toBottomOf="@id/cus_consult_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/cus_consult_satisfy_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/cus_consult_satisfy"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="20dp"
+        >
+        <RadioButton android:id="@+id/satisfy_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            />
+
+        <RadioButton android:id="@+id/satisfy_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            />
+
+        <RadioButton android:id="@+id/satisfy_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            />
+
+        <RadioButton android:id="@+id/satisfy_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            />
+
+        <RadioButton android:id="@+id/satisfy_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            />
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="상담사 평가하기"
+        android:textSize="14sp"
+        android:paddingVertical="6dp"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_join_bt"
+        app:layout_constraintTop_toBottomOf="@id/cus_consult_satisfy_rg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="69dp"
+        android:layout_marginTop="30dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

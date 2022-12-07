@@ -23,6 +23,8 @@ class JoinThirdFragment : Fragment(){
     private var smoke : String = ""
     private var drink : String = ""
     private var cancer : String = ""
+    private var job : String = ""
+    private var insurance : String = ""
 
     private lateinit var customerViewModel: CustomerViewModel
 
@@ -67,44 +69,42 @@ class JoinThirdFragment : Fragment(){
             }
         }
 
+        //보험 종류
+        binding.secondInsurance.setOnCheckedChangeListener { radioGroup, i ->
+            when(i){
+                R.id.life -> insurance = "LIFE"
+                R.id.non_life -> insurance = "NON_LIFE"
+            }
+        }
+
+        //직업
+        binding.secondJob.setOnCheckedChangeListener { radioGroup, i ->
+            when(i){
+                R.id.job_house -> job = "house_maker"
+                R.id.job_not -> job = "not_employed"
+                R.id.job_office -> job = "office_worker"
+                R.id.job_student -> job = "student"
+            }
+        }
+
         binding.bt.setOnClickListener {
-            if( binding.secondSsn.text.toString() == ""
-                || smoke == ""
+            if(
+                smoke == ""
                 || drink == ""
                 || cancer == ""
+                || job == ""
+                || insurance == ""
             ) {
                 Toast.makeText(requireContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }else {
-                customerViewModel.updateSsn(binding.secondSsn.text.toString())
                 customerViewModel.updateDrink(drink)
                 customerViewModel.updateSmoke(smoke)
                 customerViewModel.updateCancer(cancer)
+                customerViewModel.updateJob(job)
+                customerViewModel.updateInsurance(insurance)
 
-                val joinDataRequest = JoinDataRequest(
-                    customerId = customerViewModel.inputId.value,
-                    password = customerViewModel.inputPw.value,
-                    name = customerViewModel.inputName.value,
-                    address = customerViewModel.inputAddress.value,
-                    detailAddress = customerViewModel.detailAddress.value,
-                    zipcode = customerViewModel.zipcode.value,
-                    email = customerViewModel.email.value,
-                    phoneNumber = customerViewModel.phoneNum.value,
-                    kindOfJob = customerViewModel.job.value,
-                    kindOfInsurance = customerViewModel.insurance.value,
-                    ssn = customerViewModel.ssn.value,
-                    cancer = customerViewModel.cancer.value,
-                    smoke = customerViewModel.smoke.value,
-                    alcohol = customerViewModel.drink.value
-                )
-
-                customerViewModel.customerJoin(joinDataRequest)
-
-                Toast.makeText(requireContext(), "회원가입을 완료하였습니다.", Toast.LENGTH_SHORT).show()
-                val handler = Handler(Looper.getMainLooper())
-
-                handler.postDelayed({
-                    findNavController().navigate(R.id.action_fragment_join_third_to_fragment_home)
-                },1000)
+                val action = JoinThirdFragmentDirections.actionFragmentJoinThirdToFragmentJoinFirst()
+                findNavController().navigate(action)
             }
         }
 

@@ -2,13 +2,12 @@ package com.insandroid.insurance.data.model.customer
 
 //회원가입 Request Data
 data class JoinDataRequest(
-    val customerId: Int?,
+    val email: String?,
     val password: String?,
     val name: String?,
     val address: String?,
     val detailAddress: String?,
     val zipcode: String?,
-    val email: String?,
     val phoneNumber: String?,
     val kindOfJob: String?,
     val kindOfInsurance: String?,

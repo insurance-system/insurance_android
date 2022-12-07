@@ -33,7 +33,7 @@ class LoginFragment : Fragment(){
 
         //회원가입 버튼
         binding.loginToJoinTv.setOnClickListener {
-            val action = LoginFragmentDirections.actionFragmentLoginToFragmentJoinFirst()
+            val action = LoginFragmentDirections.actionFragmentLoginToFragmentJoinThird()
             findNavController().navigate(action)
         }
     }
