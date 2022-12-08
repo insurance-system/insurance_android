@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_fragment_home_to_fragment_cus_check"
             app:destination="@id/fragment_cus_check" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_cus_accident"
+            app:destination="@id/fragment_cus_accident" />
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
@@ -83,7 +86,9 @@
         tools:layout="@layout/fragment_join_third">
         <action
             android:id="@+id/action_fragment_join_third_to_fragment_join_first"
-            app:destination="@id/fragment_join_first" />
+            app:destination="@id/fragment_join_first"
+            app:popUpTo="@id/fragment_join_third"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragment_splash"
@@ -160,4 +165,9 @@
         android:name="com.insandroid.insurance.ui.view.customer.CusCheckFragment"
         android:label="CusCheckFragment"
         tools:layout="@layout/fragment_cus_check"/>
+    <fragment
+        android:id="@+id/fragment_cus_accident"
+        android:name="com.insandroid.insurance.ui.view.customer.CusAccidentFragment"
+        android:label="CusAccidentFragment"
+        tools:layout="@layout/fragment_cus_accident"/>
 </navigation>

@@ -1,5 +1,6 @@
 package com.insandroid.insurance.data.model.insurance
 
+//영업 강의 출력 리스트 Response
 data class InsuranceGetLecture(
     val status : String,
     val description : String,
