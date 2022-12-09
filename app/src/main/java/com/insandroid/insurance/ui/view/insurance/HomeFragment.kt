@@ -80,6 +80,25 @@ class HomeFragment  : Fragment(){
             val action = HomeFragmentDirections.actionFragmentHomeToFragmentWorkReward()
             findNavController().navigate(action)
         }
+
+        //사용자뷰
+        //상담사 평가하기
+        binding.customerEvaluationLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentCusEvaluation()
+            findNavController().navigate(action)
+        }
+
+        //보험급 납부 내역 확인
+        binding.customerMoneyCheckLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentCusCheck()
+            findNavController().navigate(action)
+        }
+
+        //사고 처리 접수
+        binding.customerAccidentFirstLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentCusAccident()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

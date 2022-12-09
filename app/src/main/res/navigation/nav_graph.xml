@@ -37,6 +37,15 @@
         <action
             android:id="@+id/action_fragment_home_to_fragment_work_reward"
             app:destination="@id/fragment_work_reward" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_cus_evaluation"
+            app:destination="@id/fragment_cus_evaluation" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_cus_check"
+            app:destination="@id/fragment_cus_check" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_cus_accident"
+            app:destination="@id/fragment_cus_accident" />
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
@@ -65,8 +74,10 @@
         android:label="JoinFirstFragment"
         tools:layout="@layout/fragment_join_first">
         <action
-            android:id="@+id/action_fragment_join_first_to_fragment_join_second"
-            app:destination="@id/fragment_join_second" />
+            android:id="@+id/action_fragment_join_first_to_fragment_login"
+            app:destination="@id/fragment_login"
+            app:popUpTo="@id/fragment_join_first"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragment_join_third"
@@ -74,17 +85,10 @@
         android:label="JoinThirdFragment"
         tools:layout="@layout/fragment_join_third">
         <action
-            android:id="@+id/action_fragment_join_third_to_fragment_home"
-            app:destination="@id/fragment_home" />
-    </fragment>
-    <fragment
-        android:id="@+id/fragment_join_second"
-        android:name="com.insandroid.insurance.ui.view.customer.JoinSecondFragment"
-        android:label="JoinSecondFragment"
-        tools:layout="@layout/fragment_join_second">
-        <action
-            android:id="@+id/action_fragment_join_second_to_fragment_join_third"
-            app:destination="@id/fragment_join_third" />
+            android:id="@+id/action_fragment_join_third_to_fragment_join_first"
+            app:destination="@id/fragment_join_first"
+            app:popUpTo="@id/fragment_join_third"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragment_splash"
@@ -108,8 +112,8 @@
             app:popUpTo="@id/fragment_login"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_fragment_login_to_fragment_join_first"
-            app:destination="@id/fragment_join_first" />
+            android:id="@+id/action_fragment_login_to_fragment_join_third"
+            app:destination="@id/fragment_join_third" />
     </fragment>
     <fragment
         android:id="@+id/fragment_work_new_customer"
@@ -151,4 +155,19 @@
         android:name="com.insandroid.insurance.ui.view.insurance.WorkSosCheckFragment"
         android:label="WorkSosCheckFragment"
         tools:layout="@layout/fragment_work_sos_check"/>
+    <fragment
+        android:id="@+id/fragment_cus_evaluation"
+        android:name="com.insandroid.insurance.ui.view.customer.CusEvaluationFragment"
+        android:label="CusEvaluationFragment"
+        tools:layout="@layout/fragment_cus_evaluation"/>
+    <fragment
+        android:id="@+id/fragment_cus_check"
+        android:name="com.insandroid.insurance.ui.view.customer.CusCheckFragment"
+        android:label="CusCheckFragment"
+        tools:layout="@layout/fragment_cus_check"/>
+    <fragment
+        android:id="@+id/fragment_cus_accident"
+        android:name="com.insandroid.insurance.ui.view.customer.CusAccidentFragment"
+        android:label="CusAccidentFragment"
+        tools:layout="@layout/fragment_cus_accident"/>
 </navigation>

@@ -1,5 +1,8 @@
 package com.insandroid.insurance.ui.viewmodel.customer
 
+import android.content.Context
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +12,7 @@ import com.insandroid.insurance.data.model.customer.JoinDataResponse
 import com.insandroid.insurance.data.model.insurance.WriteDataRequest
 import com.insandroid.insurance.data.model.insurance.WriteDataResponse
 import com.insandroid.insurance.data.repository.customer.CustomerRepository
+import com.insandroid.insurance.util.MainActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -17,21 +21,13 @@ class CustomerViewModel(
 ) : ViewModel() {
 
     //회원가입
-    private val _resultJoin = MutableLiveData<JoinDataResponse>()
-    val resultJoin : LiveData<JoinDataResponse>
-        get() = _resultJoin
+//    private val _resultJoin = MutableLiveData<JoinDataResponse>()
+//    val resultJoin : LiveData<JoinDataResponse>
+//        get() = _resultJoin
 
     //회원가입 API
-    fun customerJoin(joinDataRequest: JoinDataRequest) = viewModelScope.launch(Dispatchers.IO) {
-        val response = customerRepository.customerJoin(joinDataRequest)
+    fun customerJoin(joinDataRequest: JoinDataRequest) = customerRepository.customerJoin(joinDataRequest)
 
-        if(response.code() == 200){
-            _resultJoin.postValue(response.body())
-        }
-    }
-
-    private val _inputId = MutableLiveData<Int>()
-    val inputId: LiveData<Int> = _inputId
 
     private val _inputPw = MutableLiveData<String>("")
     val inputPw: LiveData<String> = _inputPw
@@ -71,10 +67,6 @@ class CustomerViewModel(
 
     private val _smoke = MutableLiveData<String>("")
     val smoke: LiveData<String> = _smoke
-
-    fun updateInputId(input: Int){
-        _inputId.value = input
-    }
 
     fun updateInputPw(input: String){
         _inputPw.value = input
