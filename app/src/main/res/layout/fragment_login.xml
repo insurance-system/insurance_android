@@ -12,7 +12,29 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:src="@drawable/logo"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="30dp"/>
+
+    <RadioGroup
+        android:id="@+id/login_kind_of_rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/login_logo_iv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+        <RadioButton android:id="@+id/login_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사용자"
+            />
+
+        <RadioButton android:id="@+id/login_worker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="관리자"
+            />
+    </RadioGroup>
 
     <EditText
         android:id="@+id/login_id_et"
@@ -27,7 +49,7 @@
         android:paddingVertical="17dp"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_logo_iv" />
+        app:layout_constraintTop_toBottomOf="@+id/login_kind_of_rg" />
 
     <EditText
         android:id="@+id/sign_in_pw_et"
