@@ -10,5 +10,6 @@
 
     <!--    join view-->
     <color name="gray_95">#959595</color>
-    <color name="join_main_color_3">#298796</color>
+    <color name="join_main_color_3">#3296FF</color>
+    <color name="unselected_color">#EFF7F9</color>
 </resources>

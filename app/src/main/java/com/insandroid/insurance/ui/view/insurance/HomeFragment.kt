@@ -99,6 +99,18 @@ class HomeFragment  : Fragment(){
             val action = HomeFragmentDirections.actionFragmentHomeToFragmentCusAccident()
             findNavController().navigate(action)
         }
+
+        //보험 가입하기
+        binding.customerInsJoinLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToCusInsJoinFragment()
+            findNavController().navigate(action)
+        }
+
+        //보험 청구하기
+        binding.customerMoneyGiveLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToCusInsMoneyFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
