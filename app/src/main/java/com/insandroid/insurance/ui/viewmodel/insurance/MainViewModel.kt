@@ -4,10 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.insandroid.insurance.data.model.insurance.InsuranceGetLecture
-import com.insandroid.insurance.data.model.insurance.InsurancePostLecture
-import com.insandroid.insurance.data.model.insurance.WriteDataRequest
-import com.insandroid.insurance.data.model.insurance.WriteDataResponse
+import com.insandroid.insurance.data.model.insurance.*
 import com.insandroid.insurance.data.repository.insurance.InsuranceRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -53,6 +50,32 @@ class MainViewModel(
 
         if(response.isSuccessful){
             _postLecture.postValue(response.body())
+        }
+    }
+
+    private val _getInsuranceTest = MutableLiveData<InsuranceGetTest>()
+    val getInsuranceTest : LiveData<InsuranceGetTest>
+        get() = _getInsuranceTest
+
+    //인수 심사 리스트 출력 API
+    fun getInsuranceTest(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getInsuranceTest(userid)
+
+        if(response.isSuccessful){
+            _getInsuranceTest.postValue(response.body())
+        }
+    }
+
+    private val _getInsMoneyTest = MutableLiveData<InsuranceMoneyTest>()
+    val getInsMoneyTest : LiveData<InsuranceMoneyTest>
+        get() = _getInsMoneyTest
+
+    //보상금 심사 리스트 출력
+    fun getMoneyTest(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getMoneyTest(userid)
+
+        if(response.isSuccessful){
+            _getInsMoneyTest.postValue(response.body())
         }
     }
 
