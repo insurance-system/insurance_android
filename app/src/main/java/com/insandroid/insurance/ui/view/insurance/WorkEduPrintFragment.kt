@@ -37,7 +37,7 @@ class WorkEduPrintFragment : Fragment(){
 
         mainViewModel = (activity as MainActivity).mainViewModel
 
-        mainViewModel.getLecture()
+        mainViewModel.getLecture(1)
 
         mainViewModel.getLecture.observe(viewLifecycleOwner) {
             val result = it.data

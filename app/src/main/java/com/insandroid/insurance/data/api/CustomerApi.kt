@@ -10,7 +10,7 @@ import retrofit2.http.POST
 //보험 관련 API
 interface CustomerApi {
 
-    //보험 설계 POST API
+    //회원가입 POST API
     @POST("/customer/join")
     fun customerJoin(
         @Body body : JoinDataRequest

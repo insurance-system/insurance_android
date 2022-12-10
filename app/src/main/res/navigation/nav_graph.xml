@@ -130,7 +130,13 @@
         android:id="@+id/fragment_work_edu_upload"
         android:name="com.insandroid.insurance.ui.view.insurance.WorkEduUploadFragment"
         android:label="WorkEduUploadFragment"
-        tools:layout="@layout/fragment_work_edu_upload"/>
+        tools:layout="@layout/fragment_work_edu_upload">
+        <action
+            android:id="@+id/action_fragment_work_edu_upload_to_fragment_work_edu_print"
+            app:destination="@id/fragment_work_edu_print"
+            app:popUpTo="@id/fragment_work_edu_upload"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_work_edu_print"
         android:name="com.insandroid.insurance.ui.view.insurance.WorkEduPrintFragment"
