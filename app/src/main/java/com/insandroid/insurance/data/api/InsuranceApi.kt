@@ -1,9 +1,6 @@
 package com.insandroid.insurance.data.api
 
-import com.insandroid.insurance.data.model.insurance.InsuranceGetLecture
-import com.insandroid.insurance.data.model.insurance.InsurancePostLecture
-import com.insandroid.insurance.data.model.insurance.WriteDataRequest
-import com.insandroid.insurance.data.model.insurance.WriteDataResponse
+import com.insandroid.insurance.data.model.insurance.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -33,5 +30,17 @@ interface InsuranceApi {
         @Header("userid") userid: Long,
         @Body body : InsurancePostLecture
     ) : Response<WriteDataResponse> //Response 가 필요없을 것 같음
+
+    //인수심사 리스트 출력 GET API
+    @GET("/insurance-employee/uw")
+    suspend fun getInsuranceTest(
+        @Header("userid") userid: Long
+    ) : Response<InsuranceGetTest>
+
+    //보상금 심사 리스트 출력 GET API
+    @GET("/insurance-employee/reward")
+    suspend fun getInsMoneyTest(
+        @Header("userid") userid: Long
+    ) : Response<InsuranceMoneyTest>
 
 }

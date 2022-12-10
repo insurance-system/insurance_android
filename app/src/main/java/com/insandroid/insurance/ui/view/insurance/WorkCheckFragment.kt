@@ -6,31 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
-import com.insandroid.insurance.databinding.FragmentWorkNotCustomerBinding
-import com.insandroid.insurance.databinding.FragmentWorkRewardBinding
-import com.insandroid.insurance.databinding.FragmentWorkSosCheckBinding
-import com.insandroid.insurance.ui.adapter.insurance.InsMoneyTestAdapter
+import com.insandroid.insurance.databinding.FragmentSettingBinding
+import com.insandroid.insurance.databinding.FragmentWorkCheckBinding
+import com.insandroid.insurance.ui.adapter.insurance.EduPrintAdapter
 import com.insandroid.insurance.ui.adapter.insurance.InsuranceTestAdapter
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
 import com.insandroid.insurance.util.MainActivity
 
-//보상금 심사 뷰
-class WorkRewardFragment: Fragment(){
-    private var _binding : FragmentWorkRewardBinding?= null
-    private val binding : FragmentWorkRewardBinding
+class WorkCheckFragment : Fragment(){
+    private var _binding : FragmentWorkCheckBinding?= null
+    private val binding : FragmentWorkCheckBinding
         get() = _binding!!
 
     private lateinit var mainViewModel: MainViewModel
 
-    private lateinit var insMoneyTestAdapter: InsMoneyTestAdapter
+    private lateinit var insuranceTestAdapter: InsuranceTestAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentWorkRewardBinding.inflate(inflater, container, false)
+        _binding = FragmentWorkCheckBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,23 +36,23 @@ class WorkRewardFragment: Fragment(){
 
         mainViewModel = (activity as MainActivity).mainViewModel
 
-        mainViewModel.getMoneyTest(1)
+        mainViewModel.getInsuranceTest(1)
 
-        mainViewModel.getInsMoneyTest.observe(viewLifecycleOwner) {
+        mainViewModel.getInsuranceTest.observe(viewLifecycleOwner) {
             val result = it.data
-            insMoneyTestAdapter.submitList(result)
+            insuranceTestAdapter.submitList(result)
         }
 
         setUpRecyclerView()
+
     }
 
-
     private fun setUpRecyclerView(){
-        insMoneyTestAdapter = InsMoneyTestAdapter()
-        binding.workerRewardRv.apply {
+        insuranceTestAdapter = InsuranceTestAdapter()
+        binding.workerCheckRv.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            adapter = insMoneyTestAdapter
+            adapter = insuranceTestAdapter
         }
 
     }

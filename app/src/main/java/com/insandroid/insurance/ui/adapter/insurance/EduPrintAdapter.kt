@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.insandroid.insurance.data.model.insurance.InsuranceGetLecture
 import com.insandroid.insurance.databinding.ItemEduGetBinding
 
-//홈화면 일단위 음식 조회 리스트뷰 어댑터
+//영업 교육 리스트 출력 어댑터
 class EduPrintAdapter() : ListAdapter<InsuranceGetLecture.GetLectureResult, EduPrintViewHolder>(BookDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EduPrintViewHolder {

@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_fragment_home_to_cusInsMoneyFragment"
             app:destination="@id/fragment_cus_ins_money" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_work_check"
+            app:destination="@id/fragment_work_check" />
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
@@ -192,4 +195,9 @@
         android:name="com.insandroid.insurance.ui.view.customer.CusInsMoneyFragment"
         android:label="CusInsMoneyFragment"
         tools:layout="@layout/fragment_cus_ins_money"/>
+    <fragment
+        android:id="@+id/fragment_work_check"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkCheckFragment"
+        android:label="WorkCheckFragment"
+        tools:layout="@layout/fragment_work_check"/>
 </navigation>

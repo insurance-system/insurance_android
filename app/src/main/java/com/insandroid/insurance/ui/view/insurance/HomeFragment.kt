@@ -57,6 +57,12 @@ class HomeFragment  : Fragment(){
             findNavController().navigate(action)
         }
 
+        //인수 심사 리스트
+        binding.homeCheckGoLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentWorkCheck()
+            findNavController().navigate(action)
+        }
+
         //보험 만기 고객 조회
         binding.homeLastCustomerGetLl.setOnClickListener {
             val action = HomeFragmentDirections.actionFragmentHomeToFragmentWorkLastCustomer()
