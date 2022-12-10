@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
 import com.insandroid.insurance.databinding.FragmentWorkNotCustomerBinding
@@ -56,6 +57,11 @@ class WorkRewardFragment: Fragment(){
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = insMoneyTestAdapter
+        }
+
+        insMoneyTestAdapter.setOnItemClickListener {
+            val action  = WorkRewardFragmentDirections.actionFragmentWorkRewardToFragmentWorkRewardDo(it)
+            findNavController().navigate(action)
         }
 
     }

@@ -5,6 +5,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -29,7 +30,7 @@ interface InsuranceApi {
     suspend fun postLecture(
         @Header("userid") userid: Long,
         @Body body : InsurancePostLecture
-    ) : Response<WriteDataResponse> //Response 가 필요없을 것 같음
+    ) : Response<WriteDataResponse> //Response 안쓰임
 
     //인수심사 리스트 출력 GET API
     @GET("/insurance-employee/uw")
@@ -37,10 +38,24 @@ interface InsuranceApi {
         @Header("userid") userid: Long
     ) : Response<InsuranceGetTest>
 
+    //인수심사 하기 Patch API
+    @PATCH("/insurance-employee/uw")
+    suspend fun patchInsuranceTest(
+        @Header("userid") userid: Long,
+        @Body body : PatchInsTest
+    ) : Response<InsuranceGetTest> //Response 안쓰임
+
     //보상금 심사 리스트 출력 GET API
     @GET("/insurance-employee/reward")
     suspend fun getInsMoneyTest(
         @Header("userid") userid: Long
     ) : Response<InsuranceMoneyTest>
+
+    //보상금심사 하기 Patch API
+    @PATCH("/insurance-employee/reward")
+    suspend fun patchMoneyTest(
+        @Header("userid") userid: Long,
+        @Body body : PatchMoneyTest
+    ) : Response<InsuranceGetTest> //Response 안쓰임
 
 }

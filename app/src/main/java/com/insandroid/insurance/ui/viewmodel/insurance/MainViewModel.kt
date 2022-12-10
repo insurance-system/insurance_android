@@ -14,11 +14,12 @@ class MainViewModel(
     private val insuranceRepository: InsuranceRepository
 ) : ViewModel() {
 
+    //보험 설계 작성 POST API
     private val _resultWrite = MutableLiveData<WriteDataResponse>()
     val resultWrite : LiveData<WriteDataResponse>
         get() = _resultWrite
 
-    //보험 설계 작성 POST API
+
     fun insuranceWrite(userid: Long, writeDataRequest: WriteDataRequest) = viewModelScope.launch(Dispatchers.IO) {
         val response = insuranceRepository.insuranceWrite(userid, writeDataRequest)
 
@@ -27,11 +28,11 @@ class MainViewModel(
         }
     }
 
+    //영업 교육 출력 GET API
     private val _getLecture = MutableLiveData<InsuranceGetLecture>()
     val getLecture : LiveData<InsuranceGetLecture>
         get() = _getLecture
 
-    //영업 교육 출력 GET API
     fun getLecture(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
         val response = insuranceRepository.getLecture(userid)
 
@@ -40,11 +41,11 @@ class MainViewModel(
         }
     }
 
+    //영업 교육 업로드 POST API
     private val _postLecture = MutableLiveData<WriteDataResponse>()
     val postLecture : LiveData<WriteDataResponse>
         get() = _postLecture
 
-    //영업 교육 업로드 POST API
     fun postLecture(userid : Long, insurancePostLecture: InsurancePostLecture) = viewModelScope.launch(Dispatchers.IO) {
         val response = insuranceRepository.postLecture(userid, insurancePostLecture)
 
@@ -53,11 +54,11 @@ class MainViewModel(
         }
     }
 
+    //인수 심사 리스트 출력 API
     private val _getInsuranceTest = MutableLiveData<InsuranceGetTest>()
     val getInsuranceTest : LiveData<InsuranceGetTest>
         get() = _getInsuranceTest
 
-    //인수 심사 리스트 출력 API
     fun getInsuranceTest(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
         val response = insuranceRepository.getInsuranceTest(userid)
 
@@ -66,11 +67,24 @@ class MainViewModel(
         }
     }
 
+    //인수 심사 수행 API
+    private val _patchInsTest = MutableLiveData<InsuranceGetTest>()
+    val patchInsTest : LiveData<InsuranceGetTest>
+        get() = _patchInsTest
+
+    fun patchInsTest(userid : Long, patchInsTest: PatchInsTest) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.patchInsuranceTest(userid, patchInsTest)
+
+        if(response.isSuccessful){
+            _patchInsTest.postValue(response.body())
+        }
+    }
+
+    //보상금 심사 리스트 출력
     private val _getInsMoneyTest = MutableLiveData<InsuranceMoneyTest>()
     val getInsMoneyTest : LiveData<InsuranceMoneyTest>
         get() = _getInsMoneyTest
 
-    //보상금 심사 리스트 출력
     fun getMoneyTest(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
         val response = insuranceRepository.getMoneyTest(userid)
 
@@ -78,6 +92,22 @@ class MainViewModel(
             _getInsMoneyTest.postValue(response.body())
         }
     }
+
+    //보상금 심사 수행 API
+    private val _patchMoneyTest = MutableLiveData<InsuranceGetTest>()
+    val patchMoneyTest : LiveData<InsuranceGetTest>
+        get() = _patchMoneyTest
+
+    fun patchMoneyTest(userid : Long, patchMoneyTest: PatchMoneyTest) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.patchMoneyTest(userid, patchMoneyTest)
+
+        if(response.isSuccessful){
+            _patchInsTest.postValue(response.body())
+        }
+    }
+
+
+
 
 
 }

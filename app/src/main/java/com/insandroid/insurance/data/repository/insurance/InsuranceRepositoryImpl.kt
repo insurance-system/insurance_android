@@ -32,7 +32,21 @@ class InsuranceRepositoryImpl : InsuranceRepository {
         return insuranceApi.getInsuranceTest(userid)
     }
 
+    override suspend fun patchInsuranceTest(
+        userid: Long,
+        patchInsTest: PatchInsTest
+    ): Response<InsuranceGetTest> {
+        return insuranceApi.patchInsuranceTest(userid, patchInsTest)
+    }
+
     override suspend fun getMoneyTest(userid: Long): Response<InsuranceMoneyTest> {
         return insuranceApi.getInsMoneyTest(userid)
+    }
+
+    override suspend fun patchMoneyTest(
+        userid: Long,
+        patchMoneyTest: PatchMoneyTest
+    ): Response<InsuranceGetTest> {
+        return insuranceApi.patchMoneyTest(userid, patchMoneyTest)
     }
 }
