@@ -29,8 +29,20 @@ interface InsuranceRepository {
         userid: Long
     ) : Response<InsuranceGetTest>
 
+    //인수 심사 수행
+    suspend fun patchInsuranceTest(
+        userid: Long,
+        patchInsTest: PatchInsTest
+    ) : Response<InsuranceGetTest>
+
     //보상금 심사 리스트 출력
     suspend fun getMoneyTest(
         userid: Long
     ) : Response<InsuranceMoneyTest>
+
+    //보상금 심사 수행
+    suspend fun patchMoneyTest(
+        userid: Long,
+        patchMoneyTest: PatchMoneyTest
+    ) : Response<InsuranceGetTest>
 }

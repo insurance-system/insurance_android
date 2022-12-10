@@ -2,6 +2,7 @@ package com.insandroid.insurance.ui.adapter.insurance
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
+import com.insandroid.insurance.data.model.insurance.GetInsuranceTest
 import com.insandroid.insurance.data.model.insurance.InsuranceGetLecture
 import com.insandroid.insurance.data.model.insurance.InsuranceGetTest
 import com.insandroid.insurance.databinding.ItemCheckCustomerBinding
@@ -13,7 +14,7 @@ class InsuranceTestViewHolder( //item_check_customer
 ) : RecyclerView.ViewHolder(binding.root) {
 
     @SuppressLint("SetTextI18n")
-    fun bind(getInsuranceTest : InsuranceGetTest.GetInsuranceTest) {
+    fun bind(getInsuranceTest : GetInsuranceTest) {
         val cancer = when (getInsuranceTest.customerCancer) {
             "C" -> "암 1기 이상 투병 중"
             "B" -> "암 1기"

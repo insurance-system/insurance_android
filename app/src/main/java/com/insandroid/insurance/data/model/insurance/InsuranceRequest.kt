@@ -6,6 +6,18 @@ data class InsurancePostLecture(
     val lectureUrl : String,
 )
 
+//인수심사 수행 Request
+data class PatchInsTest(
+    val contractId : Int,
+    val contractStatus : String,
+)
+
+//보상금 심사 수행 Request
+data class PatchMoneyTest(
+    val insuranceClaimId : Int,
+    val evaluateFee : Int,
+)
+
 /*
 {
   "lectureName": "string",

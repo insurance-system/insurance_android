@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.insandroid.insurance.databinding.FragmentSettingBinding
 import com.insandroid.insurance.databinding.FragmentWorkCheckBinding
@@ -13,6 +14,7 @@ import com.insandroid.insurance.ui.adapter.insurance.InsuranceTestAdapter
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
 import com.insandroid.insurance.util.MainActivity
 
+//인수 심사 리스트 뷰
 class WorkCheckFragment : Fragment(){
     private var _binding : FragmentWorkCheckBinding?= null
     private val binding : FragmentWorkCheckBinding
@@ -53,6 +55,11 @@ class WorkCheckFragment : Fragment(){
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = insuranceTestAdapter
+        }
+
+        insuranceTestAdapter.setOnItemClickListener {
+            val action  = WorkCheckFragmentDirections.actionFragmentWorkCheckToFragmentWorkCheckDo(it)
+            findNavController().navigate(action)
         }
 
     }

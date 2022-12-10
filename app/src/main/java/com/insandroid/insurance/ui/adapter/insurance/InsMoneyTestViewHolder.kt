@@ -2,6 +2,7 @@ package com.insandroid.insurance.ui.adapter.insurance
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
+import com.insandroid.insurance.data.model.insurance.GetMoneyTest
 import com.insandroid.insurance.data.model.insurance.InsuranceGetLecture
 import com.insandroid.insurance.data.model.insurance.InsuranceGetTest
 import com.insandroid.insurance.data.model.insurance.InsuranceMoneyTest
@@ -15,7 +16,7 @@ class InsMoneyTestViewHolder( //item_check_customer
 ) : RecyclerView.ViewHolder(binding.root) {
 
     @SuppressLint("SetTextI18n")
-    fun bind(getInsMoney : InsuranceMoneyTest.GetMoneyTest) {
+    fun bind(getInsMoney : GetMoneyTest) {
         binding.checkInformation.text = "심사 내용 : ${getInsMoney.claimContent}"
 
         val insKindOf = when(getInsMoney.kindOfInsurance){
