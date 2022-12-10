@@ -5,8 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/cus_accident_tv"
-        android:text="사고 처리 접수"
+        android:id="@+id/cus_ins_money_tv"
+        android:text="보험금 청구하기"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -16,29 +16,29 @@
         android:layout_marginTop="20dp"/>
 
     <EditText
-        android:id="@+id/cus_accident_date"
+        android:id="@+id/cus_ins_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="사고날짜"
+        android:hint="보험 이름"
         android:paddingBottom="16dp"
         android:textSize="14sp"
         android:inputType="textPersonName"
         android:maxLength="18"
-        app:layout_constraintTop_toBottomOf="@id/cus_accident_tv"
+        app:layout_constraintTop_toBottomOf="@id/cus_ins_money_tv"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="18dp"
         android:layout_marginHorizontal="24dp"/>
 
     <EditText
-        android:id="@+id/cus_accident_car_number"
+        android:id="@+id/cus_ins_money"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="차 번호"
+        android:hint="보험 청구 비 (단위 : 원)"
         android:paddingBottom="16dp"
         android:textSize="14sp"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:maxLength="18"
-        app:layout_constraintTop_toBottomOf="@id/cus_accident_date"
+        app:layout_constraintTop_toBottomOf="@id/cus_ins_name"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="18dp"
         android:layout_marginHorizontal="24dp"/>
@@ -47,40 +47,12 @@
         android:id="@+id/cus_accident_region"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="사고 지역"
+        android:hint="기타 내용"
         android:paddingBottom="16dp"
         android:textSize="14sp"
         android:inputType="textPersonName"
         android:maxLength="18"
-        app:layout_constraintTop_toBottomOf="@id/cus_accident_car_number"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="18dp"
-        android:layout_marginHorizontal="24dp"/>
-
-    <EditText
-        android:id="@+id/cus_accident_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="전화번호"
-        android:paddingBottom="16dp"
-        android:textSize="14sp"
-        android:inputType="textPersonName"
-        android:maxLength="18"
-        app:layout_constraintTop_toBottomOf="@id/cus_accident_region"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="18dp"
-        android:layout_marginHorizontal="24dp"/>
-
-    <EditText
-        android:id="@+id/cus_accident_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="이름"
-        android:paddingBottom="16dp"
-        android:textSize="14sp"
-        android:inputType="textPersonName"
-        android:maxLength="18"
-        app:layout_constraintTop_toBottomOf="@id/cus_accident_phone"
+        app:layout_constraintTop_toBottomOf="@id/cus_ins_money"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="18dp"
         android:layout_marginHorizontal="24dp"/>
@@ -89,7 +61,7 @@
         android:id="@+id/bt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="사고 접수하기"
+        android:text="보험 청구하기"
         android:textSize="14sp"
         android:paddingVertical="6dp"
         android:textColor="@color/white"

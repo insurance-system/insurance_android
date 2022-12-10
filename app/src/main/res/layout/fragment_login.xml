@@ -43,7 +43,7 @@
         android:layout_marginHorizontal="25dp"
         android:layout_weight="1"
         android:background="@drawable/sign_up_edit_text"
-        android:hint="아이디"
+        android:hint="이메일"
         android:inputType="textPersonName"
         android:paddingStart="26dp"
         android:paddingVertical="17dp"

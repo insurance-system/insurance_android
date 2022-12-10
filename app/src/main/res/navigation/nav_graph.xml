@@ -46,6 +46,12 @@
         <action
             android:id="@+id/action_fragment_home_to_fragment_cus_accident"
             app:destination="@id/fragment_cus_accident" />
+        <action
+            android:id="@+id/action_fragment_home_to_cusInsJoinFragment"
+            app:destination="@id/fragment_cus_ins_join" />
+        <action
+            android:id="@+id/action_fragment_home_to_cusInsMoneyFragment"
+            app:destination="@id/fragment_cus_ins_money" />
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
@@ -170,4 +176,14 @@
         android:name="com.insandroid.insurance.ui.view.customer.CusAccidentFragment"
         android:label="CusAccidentFragment"
         tools:layout="@layout/fragment_cus_accident"/>
+    <fragment
+        android:id="@+id/fragment_cus_ins_join"
+        android:name="com.insandroid.insurance.ui.view.customer.CusInsJoinFragment"
+        android:label="CusInsJoinFragment"
+        tools:layout="@layout/fragment_cus_ins_join"/>
+    <fragment
+        android:id="@+id/fragment_cus_ins_money"
+        android:name="com.insandroid.insurance.ui.view.customer.CusInsMoneyFragment"
+        android:label="CusInsMoneyFragment"
+        tools:layout="@layout/fragment_cus_ins_money"/>
 </navigation>
