@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.insandroid.insurance.data.model.insurance.InsuranceGetLecture
+import com.insandroid.insurance.data.model.insurance.InsurancePostLecture
 import com.insandroid.insurance.data.model.insurance.WriteDataRequest
 import com.insandroid.insurance.data.model.insurance.WriteDataResponse
 import com.insandroid.insurance.data.repository.insurance.InsuranceRepository
@@ -21,8 +22,8 @@ class MainViewModel(
         get() = _resultWrite
 
     //보험 설계 작성 POST API
-    fun insuranceWrite(writeDataRequest: WriteDataRequest) = viewModelScope.launch(Dispatchers.IO) {
-        val response = insuranceRepository.insuranceWrite(writeDataRequest)
+    fun insuranceWrite(userid: Long, writeDataRequest: WriteDataRequest) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.insuranceWrite(userid, writeDataRequest)
 
         if(response.code() == 200){
             _resultWrite.postValue(response.body())
@@ -33,12 +34,25 @@ class MainViewModel(
     val getLecture : LiveData<InsuranceGetLecture>
         get() = _getLecture
 
-    //보험 설계 작성 POST API
-    fun getLecture() = viewModelScope.launch(Dispatchers.IO) {
-        val response = insuranceRepository.getLecture()
+    //영업 교육 출력 GET API
+    fun getLecture(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getLecture(userid)
 
         if(response.isSuccessful){
             _getLecture.postValue(response.body())
+        }
+    }
+
+    private val _postLecture = MutableLiveData<WriteDataResponse>()
+    val postLecture : LiveData<WriteDataResponse>
+        get() = _postLecture
+
+    //영업 교육 업로드 POST API
+    fun postLecture(userid : Long, insurancePostLecture: InsurancePostLecture) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.postLecture(userid, insurancePostLecture)
+
+        if(response.isSuccessful){
+            _postLecture.postValue(response.body())
         }
     }
 

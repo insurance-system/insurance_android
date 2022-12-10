@@ -97,7 +97,7 @@ class WriteFragment : Fragment(){
                     kindOfInsurance = kind
                 )
 
-                mainViewModel.insuranceWrite(writeDataRequest)
+                mainViewModel.insuranceWrite(1, writeDataRequest)
 
                 Toast.makeText(requireContext(), "보험설계를 완료하였습니다.", Toast.LENGTH_SHORT).show()
                 val handler = Handler(Looper.getMainLooper())
