@@ -20,7 +20,7 @@ interface CustomerApi {
         @Header("userid") userid: Long
     ) : Response<MyInsurance>
 
-    //가입된 보험 정보 리스트 GET API
+    //보험 가입 신청 POST API
     @POST("/insurance-customer/insurance")
     suspend fun postInsurance(
         @Body body : PostInsurance,
@@ -39,6 +39,13 @@ interface CustomerApi {
     suspend fun postMoneyInsurance(
         @Body body : PostMoney,
         @Header("userid") userid: Long
-    ) : Response<PostInsuranceResponse>
+    ) : Response<PostMoneyResponse>
+
+    //보험금 청구하기 POST API
+    @POST("/insurance-customer/incident-accept")
+    suspend fun postIncident(
+        @Body body : PostIncident,
+        @Header("userid") userid: Long
+    ) : Response<PostMoneyResponse>
 
 }

@@ -193,7 +193,13 @@
         android:id="@+id/fragment_cus_accident"
         android:name="com.insandroid.insurance.ui.view.customer.CusAccidentFragment"
         android:label="CusAccidentFragment"
-        tools:layout="@layout/fragment_cus_accident"/>
+        tools:layout="@layout/fragment_cus_accident">
+        <action
+            android:id="@+id/action_fragment_cus_accident_to_fragment_home"
+            app:destination="@id/fragment_home"
+            app:popUpTo="@id/fragment_cus_accident"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_cus_ins_join"
         android:name="com.insandroid.insurance.ui.view.customer.CusInsJoinFragment"

@@ -14,3 +14,22 @@ data class PostMoney(
     val claimContent : String,
     val claimCost : Int
 )
+
+//사고처리접수
+data class PostIncident(
+    val incidentDate : String,
+    val carNumber : String,
+    val incidentSite : String,
+    val incidentPhoneNumber : String,
+    val incidentCategory : String,
+)
+/*
+  "incidentDate": "string",
+  "carNumber": "string",
+  "incidentSite": "string",
+  "incidentPhoneNumber": "string",
+  "incidentCategory": "string"
+ */
+
+
+

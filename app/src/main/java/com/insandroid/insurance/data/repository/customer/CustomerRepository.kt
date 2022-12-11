@@ -32,5 +32,11 @@ interface CustomerRepository {
     suspend fun postMoneyInsurance(
         userid: Long,
         postMoney: PostMoney
-    ) : Response<PostInsuranceResponse>
+    ) : Response<PostMoneyResponse>
+
+    //보험금 청구하기
+    suspend fun postIncident(
+        userid: Long,
+        postIncident: PostIncident
+    ) : Response<PostMoneyResponse>
 }

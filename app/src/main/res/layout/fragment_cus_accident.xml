@@ -71,19 +71,36 @@
         android:layout_marginTop="18dp"
         android:layout_marginHorizontal="24dp"/>
 
-    <EditText
-        android:id="@+id/cus_accident_name"
+    <RadioGroup
+        android:id="@+id/write_smoke_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="이름"
-        android:paddingBottom="16dp"
-        android:textSize="14sp"
-        android:inputType="textPersonName"
-        android:maxLength="18"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/cus_accident_phone"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="18dp"
-        android:layout_marginHorizontal="24dp"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginHorizontal="20dp"
+        >
+        <RadioButton android:id="@+id/car_to_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="차대차"
+            />
+
+        <RadioButton android:id="@+id/car_to_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="차대인"
+            />
+
+        <RadioButton android:id="@+id/solo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="단독"
+            />
+    </RadioGroup>
+
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt"
