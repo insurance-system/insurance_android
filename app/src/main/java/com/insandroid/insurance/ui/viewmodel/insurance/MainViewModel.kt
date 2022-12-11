@@ -106,7 +106,44 @@ class MainViewModel(
         }
     }
 
+    //상담 대기 신규 고객 리스트 출력
+    private val _getInsCustomer = MutableLiveData<InsuranceGetCustomer>()
+    val getInsCustomer : LiveData<InsuranceGetCustomer>
+        get() = _getInsCustomer
 
+    fun getInsCustomer(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getInsCustomer(userid)
+
+        if(response.isSuccessful){
+            _getInsCustomer.postValue(response.body())
+        }
+    }
+
+    //사고 접수 리스트 출력
+    private val _getIncident = MutableLiveData<IncidentGet>()
+    val getIncident : LiveData<IncidentGet>
+        get() = _getIncident
+
+    fun getIncident(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getIncidentInfor(userid)
+
+        if(response.isSuccessful){
+            _getIncident.postValue(response.body())
+        }
+    }
+
+    //사고 담당자 배정
+    private val _patchIncident = MutableLiveData<IncidentGet>()
+    val patchIncident : LiveData<IncidentGet>
+        get() = _patchIncident
+
+    fun patchIncident(userid : Long, incident_log_id : Int) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.patchIncidentInfor(userid, incident_log_id)
+
+        if(response.isSuccessful){
+            _patchIncident.postValue(response.body())
+        }
+    }
 
 
 

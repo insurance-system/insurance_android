@@ -37,3 +37,32 @@ data class InsuranceMoneyTest(
 
     val data : List<GetMoneyTest>
 )
+
+//상담 대기 신규고객 명단 리스트 Response
+data class InsuranceGetCustomer(
+    val status : String,
+    val description : String,
+    val statusCode : Int,
+    val transaction_time : String,
+
+    val data : List<GetInsCustomer>
+
+){
+    data class GetInsCustomer(
+        val customerName : String,
+        val phoneNum : String,
+        val kindOfInsurance : String,
+        val kindOfJob : String
+    )
+}
+
+//사고 접수 리스트 Response
+data class IncidentGet(
+    val status : String,
+    val description : String,
+    val statusCode : Int,
+    val transaction_time : String,
+
+    val data : List<GetIncidentInfor>
+
+)

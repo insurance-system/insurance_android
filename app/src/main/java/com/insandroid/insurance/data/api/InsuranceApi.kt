@@ -7,6 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 //보험 관련 API
@@ -57,5 +58,24 @@ interface InsuranceApi {
         @Header("userid") userid: Long,
         @Body body : PatchMoneyTest
     ) : Response<InsuranceGetTest> //Response 안쓰임
+
+    //상담 대기 신규 고객 조회 GET API
+    @GET("/insurance-employee/sales/new-customer")
+    suspend fun getInsCustomer(
+        @Header("userid") userid: Long
+    ) : Response<InsuranceGetCustomer>
+
+    //사고 접수 조회 GET API
+    @GET("/insurance-employee/damage")
+    suspend fun getIncident(
+        @Header("userid") userid: Long
+    ) : Response<IncidentGet>
+
+    //사고 접수 담당자 배정 PATCH API
+    @PATCH("/insurance-employee/damage/{incident_log_id}")
+    suspend fun patchIncident(
+        @Header("userid") userid: Long,
+        @Path("incident_log_id") incident_log_id : Int
+    ) : Response<IncidentGet> //Response 안쓰임
 
 }
