@@ -111,12 +111,6 @@ class HomeFragment  : Fragment(){
             val action = HomeFragmentDirections.actionFragmentHomeToCusInsJoinFragment()
             findNavController().navigate(action)
         }
-
-        //보험 청구하기
-        binding.customerMoneyGiveLl.setOnClickListener {
-            val action = HomeFragmentDirections.actionFragmentHomeToCusInsMoneyFragment()
-            findNavController().navigate(action)
-        }
     }
 
     override fun onDestroyView() {

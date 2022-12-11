@@ -1,5 +1,6 @@
 package com.insandroid.insurance.ui.view.customer
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -11,18 +12,18 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.insandroid.insurance.R
-import com.insandroid.insurance.data.model.customer.PostMoney
-import com.insandroid.insurance.databinding.FragmentCusCheckBinding
-import com.insandroid.insurance.databinding.FragmentCusInsMoneyBinding
+import com.insandroid.insurance.data.model.customer.PostInsurance
+import com.insandroid.insurance.data.model.customer.PostInsuranceResponse
+import com.insandroid.insurance.databinding.FragmentCusInsDoBinding
 import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModel
 import com.insandroid.insurance.util.MainActivity
 
-class CusInsMoneyFragment : Fragment(){
-    private var _binding : FragmentCusInsMoneyBinding?= null
-    private val binding : FragmentCusInsMoneyBinding
+class CusInsDoFragment : Fragment(){
+    private var _binding : FragmentCusInsDoBinding?= null
+    private val binding : FragmentCusInsDoBinding
         get() = _binding!!
 
-    private val args : CusInsMoneyFragmentArgs by navArgs<CusInsMoneyFragmentArgs>()
+    private val args : CusInsDoFragmentArgs by navArgs<CusInsDoFragmentArgs>()
 
     private lateinit var customerViewModel: CustomerViewModel
 
@@ -31,32 +32,38 @@ class CusInsMoneyFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCusInsMoneyBinding.inflate(inflater, container, false)
+        _binding = FragmentCusInsDoBinding.inflate(inflater, container, false)
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         customerViewModel = (activity as MainActivity).customerViewModel
 
         val insurance = args.insurance
 
-        binding.cusInsName.text = "보험 이름 : ${insurance.insuranceName}"
+        val kindOf = when(insurance.kindOfInsurance){
+            "LIFE" -> "생명보험"
+            else -> "비생명보험"
+        }
+
+        binding.workCheckDoName.text = "보험 이름 : ${insurance.insuranceName}"
+        binding.workCheckDoKind.text = "보험 종류 : $kindOf"
 
         binding.bt.setOnClickListener {
-            val postMoney = PostMoney(
-                insuranceId = insurance.insuranceId,
-                claimContent = binding.cusAccidentRegion.text.toString(),
-                claimCost = binding.cusInsMoney.text.toString().toInt()
+            val postInsurance = PostInsurance(
+                insuranceId = insurance.insuranceId
             )
 
-            customerViewModel.postMoney(2, postMoney)
+            customerViewModel.postInsurance(postInsurance, 2)
 
-            Toast.makeText(requireContext(), "보험금 신청하였습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "보험 신청되었습니다.", Toast.LENGTH_SHORT).show()
             val handler = Handler(Looper.getMainLooper())
 
             handler.postDelayed({
-                findNavController().navigate(R.id.action_fragment_cus_ins_money_to_fragment_mine)
+                findNavController().navigate(R.id.action_fragment_cus_ins_do_to_fragment_home)
             },1000)
         }
     }
