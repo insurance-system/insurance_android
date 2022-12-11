@@ -49,4 +49,19 @@ class InsuranceRepositoryImpl : InsuranceRepository {
     ): Response<InsuranceGetTest> {
         return insuranceApi.patchMoneyTest(userid, patchMoneyTest)
     }
+
+    override suspend fun getInsCustomer(userid: Long): Response<InsuranceGetCustomer> {
+        return insuranceApi.getInsCustomer(userid)
+    }
+
+    override suspend fun getIncidentInfor(userid: Long): Response<IncidentGet> {
+        return insuranceApi.getIncident(userid)
+    }
+
+    override suspend fun patchIncidentInfor(
+        userid: Long,
+        incident_log_id: Int
+    ): Response<IncidentGet> {
+        return insuranceApi.patchIncident(userid, incident_log_id)
+    }
 }

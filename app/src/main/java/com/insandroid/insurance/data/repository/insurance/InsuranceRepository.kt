@@ -45,4 +45,20 @@ interface InsuranceRepository {
         userid: Long,
         patchMoneyTest: PatchMoneyTest
     ) : Response<InsuranceGetTest>
+
+    //상담 대기 신규 고객 리스트 출력
+    suspend fun getInsCustomer(
+        userid: Long
+    ) : Response<InsuranceGetCustomer>
+
+    //사고 접수 리스트 출력
+    suspend fun getIncidentInfor(
+        userid: Long
+    ) : Response<IncidentGet>
+
+    //사고 접수 담당자 배정
+    suspend fun patchIncidentInfor(
+        userid: Long,
+        incident_log_id : Int,
+    ) : Response<IncidentGet>
 }
