@@ -33,8 +33,15 @@ class CustomerRepositoryImpl : CustomerRepository {
     override suspend fun postMoneyInsurance(
         userid: Long,
         postMoney: PostMoney
-    ): Response<PostInsuranceResponse> {
+    ): Response<PostMoneyResponse> {
         return customerApi.postMoneyInsurance(postMoney, userid)
+    }
+
+    override suspend fun postIncident(
+        userid: Long,
+        postIncident: PostIncident
+    ): Response<PostMoneyResponse> {
+        return customerApi.postIncident(postIncident, userid)
     }
 
 }

@@ -13,6 +13,7 @@ data class MyInsurance(
     val data : List<GetMyInsurance>
 )
 
+
 data class PostInsuranceResponse(
     val status : String,
     val description : String,
@@ -27,6 +28,15 @@ data class PostInsuranceResponse(
         val contractStatus : String,
     )
 }
+
+//보험금 청구하기, 사고처리접수
+data class PostMoneyResponse(
+    val status : String,
+    val description : String,
+    val statusCode : Int,
+    val transaction_time : String,
+)
+
 /*
  "insuranceName": "string",
     "kindOfInsurance": "string",

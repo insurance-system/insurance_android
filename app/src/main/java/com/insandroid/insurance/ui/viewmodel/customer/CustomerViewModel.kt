@@ -74,8 +74,8 @@ class CustomerViewModel(
     }
 
     //보험금 청구하기
-    private val _postMoney = MutableLiveData<PostInsuranceResponse>()
-    val postMoney : LiveData<PostInsuranceResponse>
+    private val _postMoney = MutableLiveData<PostMoneyResponse>()
+    val postMoney : LiveData<PostMoneyResponse>
         get() = _postMoney
 
     fun postMoney(userid : Long, postMoney: PostMoney) = viewModelScope.launch(Dispatchers.IO) {
@@ -83,6 +83,19 @@ class CustomerViewModel(
 
         if(response.isSuccessful){
             _postMoney.postValue(response.body())
+        }
+    }
+
+    //사고처리접수
+    private val _postIncident = MutableLiveData<PostMoneyResponse>()
+    val postIncident : LiveData<PostMoneyResponse>
+        get() = _postIncident
+
+    fun postIncident(userid : Long, postIncident: PostIncident) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.postIncident(userid, postIncident)
+
+        if(response.isSuccessful){
+            _postIncident.postValue(response.body())
         }
     }
 
