@@ -1,7 +1,6 @@
 package com.insandroid.insurance.data.repository.customer
 
-import com.insandroid.insurance.data.model.customer.JoinDataRequest
-import com.insandroid.insurance.data.model.customer.JoinDataResponse
+import com.insandroid.insurance.data.model.customer.*
 import retrofit2.Call
 import retrofit2.Response
 
@@ -11,4 +10,27 @@ interface CustomerRepository {
     fun customerJoin(
         joinDataRequest: JoinDataRequest
     ) : Call<JoinDataResponse>
+
+    //내 보험 출력
+    suspend fun getMyInsurance(
+        userid: Long
+    ) : Response<MyInsurance>
+
+    //보험 가입 신청하기
+    suspend fun postInsurance(
+        postInsurance: PostInsurance,
+        userid: Long
+    ) : Response<PostInsuranceResponse>
+
+    //보험 정보 출력
+    suspend fun getInsurance(
+        userid: Long,
+        kind_of_insurance : String
+    ) : Response<MyInsurance>
+
+    //보험금 청구하기
+    suspend fun postMoneyInsurance(
+        userid: Long,
+        postMoney: PostMoney
+    ) : Response<PostInsuranceResponse>
 }

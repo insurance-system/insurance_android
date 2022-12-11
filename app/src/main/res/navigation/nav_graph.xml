@@ -50,9 +50,6 @@
             android:id="@+id/action_fragment_home_to_cusInsJoinFragment"
             app:destination="@id/fragment_cus_ins_join" />
         <action
-            android:id="@+id/action_fragment_home_to_cusInsMoneyFragment"
-            app:destination="@id/fragment_cus_ins_money" />
-        <action
             android:id="@+id/action_fragment_home_to_fragment_work_check"
             app:destination="@id/fragment_work_check" />
     </fragment>
@@ -60,7 +57,11 @@
         android:id="@+id/fragment_mine"
         android:name="com.insandroid.insurance.ui.view.insurance.MineFragment"
         android:label="fragment_mine"
-        tools:layout="@layout/fragment_mine" />
+        tools:layout="@layout/fragment_mine" >
+        <action
+            android:id="@+id/action_fragment_mine_to_fragment_cus_ins_money"
+            app:destination="@id/fragment_cus_ins_money" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_setting"
         android:name="com.insandroid.insurance.ui.view.insurance.SettingFragment"
@@ -197,12 +198,25 @@
         android:id="@+id/fragment_cus_ins_join"
         android:name="com.insandroid.insurance.ui.view.customer.CusInsJoinFragment"
         android:label="CusInsJoinFragment"
-        tools:layout="@layout/fragment_cus_ins_join"/>
+        tools:layout="@layout/fragment_cus_ins_join">
+        <action
+            android:id="@+id/action_fragment_cus_ins_join_to_fragment_cus_ins_do"
+            app:destination="@id/fragment_cus_ins_do" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_cus_ins_money"
         android:name="com.insandroid.insurance.ui.view.customer.CusInsMoneyFragment"
         android:label="CusInsMoneyFragment"
-        tools:layout="@layout/fragment_cus_ins_money"/>
+        tools:layout="@layout/fragment_cus_ins_money">
+        <action
+            android:id="@+id/action_fragment_cus_ins_money_to_fragment_mine"
+            app:destination="@id/fragment_mine"
+            app:popUpTo="@id/fragment_cus_ins_money"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="insurance"
+            app:argType="com.insandroid.insurance.data.model.customer.GetMyInsurance" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_work_check"
         android:name="com.insandroid.insurance.ui.view.insurance.WorkCheckFragment"
@@ -254,5 +268,19 @@
         <argument
             android:name="incidentInfor"
             app:argType="com.insandroid.insurance.data.model.insurance.GetIncidentInfor" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_cus_ins_do"
+        android:name="com.insandroid.insurance.ui.view.customer.CusInsDoFragment"
+        android:label="CusInsDoFragment"
+        tools:layout="@layout/fragment_cus_ins_do">
+        <action
+            android:id="@+id/action_fragment_cus_ins_do_to_fragment_home"
+            app:destination="@id/fragment_home"
+            app:popUpTo="@id/fragment_cus_ins_do"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="insurance"
+            app:argType="com.insandroid.insurance.data.model.customer.GetMyInsurance" />
     </fragment>
 </navigation>

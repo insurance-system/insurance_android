@@ -44,7 +44,14 @@ class WorkSosDoFragment : Fragment(){
         binding.workSosDoCustomerPhone.text = incidentInfor.incidentPhoneNumber
         binding.workSosDoDate.text = incidentInfor.incidentDate
         binding.workSosDoSite.text = "사고 장소 : ${incidentInfor.incidentSite}"
-        binding.workSosDoKind.text = "사고 종류 : ${incidentInfor.incidentCategory}"
+
+        val category = when(incidentInfor.incidentCategory){
+            "solo" -> "단독사고"
+            "carToCar" -> "차대차"
+            else -> "차대인"
+        }
+
+        binding.workSosDoKind.text = "사고 종류 : ${category}"
 
         binding.bt.setOnClickListener {
             mainViewModel.patchIncident(1, incidentInfor.incidentLogId)

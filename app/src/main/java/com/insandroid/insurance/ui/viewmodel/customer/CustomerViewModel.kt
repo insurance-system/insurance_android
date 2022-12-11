@@ -1,18 +1,11 @@
 package com.insandroid.insurance.ui.viewmodel.customer
 
-import android.content.Context
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.insandroid.insurance.data.model.customer.JoinDataRequest
-import com.insandroid.insurance.data.model.customer.JoinDataResponse
-import com.insandroid.insurance.data.model.insurance.WriteDataRequest
-import com.insandroid.insurance.data.model.insurance.WriteDataResponse
+import com.insandroid.insurance.data.model.customer.*
 import com.insandroid.insurance.data.repository.customer.CustomerRepository
-import com.insandroid.insurance.util.MainActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -28,36 +21,76 @@ class CustomerViewModel(
     //회원가입 API
     fun customerJoin(joinDataRequest: JoinDataRequest) = customerRepository.customerJoin(joinDataRequest)
 
+    //보험된 가입 정보 불러오기
+    private val _myInsurance = MutableLiveData<MyInsurance>()
+    val myInsurance : LiveData<MyInsurance>
+        get() = _myInsurance
 
-    private val _inputPw = MutableLiveData<String>("")
-    val inputPw: LiveData<String> = _inputPw
+    fun getMyInsurance(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.getMyInsurance(userid)
 
-    private val _inputName = MutableLiveData<String>("")
-    val inputName: LiveData<String> = _inputName
+        if(response.isSuccessful){
+            _myInsurance.postValue(response.body())
+        }
+    }
 
-    private val _inputAddress = MutableLiveData<String>("")
-    val inputAddress: LiveData<String> = _inputAddress
+    //가입 신청하기
+    private val _postInsurance = MutableLiveData<PostInsuranceResponse>()
+    val postInsurance : LiveData<PostInsuranceResponse>
+        get() = _postInsurance
 
-    private val _detailAddress = MutableLiveData<String>("")
-    val detailAddress: LiveData<String> = _detailAddress
+    fun postInsurance(postInsurance : PostInsurance, userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.postInsurance(postInsurance, userid)
 
-    private val _zipcode = MutableLiveData<String>("")
-    val zipcode: LiveData<String> = _zipcode
+        if(response.isSuccessful){
+            _postInsurance.postValue(response.body())
+        }
+    }
 
-    private val _phoneNum = MutableLiveData<String>("")
-    val phoneNum: LiveData<String> = _phoneNum
+    //LIFE 보험 정보 불러오기
+    private val _getInsurance = MutableLiveData<MyInsurance>()
+    val getInsurance : LiveData<MyInsurance>
+        get() = _getInsurance
 
-    private val _email = MutableLiveData<String>("")
-    val email : LiveData<String> = _email
+    fun getInsurance(userid : Long, insuranceKind : String) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.getInsurance(userid, insuranceKind)
+
+        if(response.isSuccessful){
+            _getInsurance.postValue(response.body())
+        }
+    }
+
+    //NON_LIFE 보험 정보 불러오기
+    private val _getNonInsurance = MutableLiveData<MyInsurance>()
+    val getNonInsurance : LiveData<MyInsurance>
+        get() = _getNonInsurance
+
+    fun getNonInsurance(userid : Long, insuranceKind : String) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.getInsurance(userid, insuranceKind)
+
+        if(response.isSuccessful){
+            _getNonInsurance.postValue(response.body())
+        }
+    }
+
+    //보험금 청구하기
+    private val _postMoney = MutableLiveData<PostInsuranceResponse>()
+    val postMoney : LiveData<PostInsuranceResponse>
+        get() = _postMoney
+
+    fun postMoney(userid : Long, postMoney: PostMoney) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.postMoneyInsurance(userid, postMoney)
+
+        if(response.isSuccessful){
+            _postMoney.postValue(response.body())
+        }
+    }
 
     private val _insurance = MutableLiveData<String>("")
     val insurance: LiveData<String> = _insurance
 
     private val _job = MutableLiveData<String>("")
     val job: LiveData<String> = _job
-
-    private val _ssn = MutableLiveData<String>("")
-    val ssn: LiveData<String> = _ssn
 
     private val _cancer = MutableLiveData<String>("")
     val cancer : LiveData<String> = _cancer
@@ -68,44 +101,12 @@ class CustomerViewModel(
     private val _smoke = MutableLiveData<String>("")
     val smoke: LiveData<String> = _smoke
 
-    fun updateInputPw(input: String){
-        _inputPw.value = input
-    }
-
-    fun updateInputName(input: String){
-        _inputName.value = input
-    }
-
-    fun updateInputAddress(input: String){
-        _inputAddress.value = input
-    }
-
-    fun updateDetailAddress(input: String){
-        _detailAddress.value = input
-    }
-
-    fun updateZipcode(input: String){
-        _zipcode.value = input
-    }
-
-    fun updatePhoneNum(input: String){
-        _phoneNum.value = input
-    }
-
-    fun updateEmail(input: String){
-        _email.value = input
-    }
-
     fun updateInsurance(input: String){
         _insurance.value = input
     }
 
     fun updateJob(input: String){
         _job.value = input
-    }
-
-    fun updateSsn(input: String){
-        _ssn.value = input
     }
 
     fun updateCancer(input: String){

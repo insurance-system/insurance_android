@@ -1,8 +1,7 @@
 package com.insandroid.insurance.data.repository.customer
 
 import com.insandroid.insurance.data.api.RetrofitInstance.customerApi
-import com.insandroid.insurance.data.model.customer.JoinDataRequest
-import com.insandroid.insurance.data.model.customer.JoinDataResponse
+import com.insandroid.insurance.data.model.customer.*
 import retrofit2.Call
 import retrofit2.Response
 
@@ -11,6 +10,31 @@ class CustomerRepositoryImpl : CustomerRepository {
         joinDataRequest: JoinDataRequest
     ): Call<JoinDataResponse> {
         return customerApi.customerJoin(joinDataRequest)
+    }
+
+    override suspend fun getMyInsurance(userid: Long): Response<MyInsurance> {
+        return customerApi.getMyInsurance(userid)
+    }
+
+    override suspend fun postInsurance(
+        postInsurance: PostInsurance,
+        userid: Long
+    ): Response<PostInsuranceResponse> {
+        return customerApi.postInsurance(postInsurance, userid)
+    }
+
+    override suspend fun getInsurance(
+        userid: Long,
+        kind_of_insurance: String
+    ): Response<MyInsurance> {
+        return customerApi.getInsurance(userid, kind_of_insurance)
+    }
+
+    override suspend fun postMoneyInsurance(
+        userid: Long,
+        postMoney: PostMoney
+    ): Response<PostInsuranceResponse> {
+        return customerApi.postMoneyInsurance(postMoney, userid)
     }
 
 }
