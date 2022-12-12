@@ -86,4 +86,16 @@ interface InsuranceApi {
         @Path("empCusId") empCusId : Long
     ) : Response<PostInsuranceResponse> //Response 안쓰임
 
+    //미납 고객 조회
+    @GET("/insurance-employee/contract/non-payment")
+    suspend fun getNonPayment(
+        @Header("userid") userid: Long
+    ) : Response<GetNonPayment>
+
+    //보험 만기 고객 조회
+    @GET("/insurance-employee/followup/expiration")
+    suspend fun getLastInsurance(
+        @Header("userid") userid: Long
+    ) : Response<GetNonPayment>
+
 }

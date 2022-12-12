@@ -59,3 +59,22 @@ data class IncidentGet(
     val data : List<GetIncidentInfor>
 
 )
+
+//미납 고객 조히ㅗ
+data class GetNonPayment(
+    val status : String,
+    val description : String,
+    val statusCode : Int,
+    val transaction_time : String,
+//
+    val data : List<NonPayment>
+){
+    data class NonPayment(
+        val customerName : String,
+        val phoneNum : String,
+        val kindOfJob : String,
+        val insuranceName : String,
+        val fee : Int,
+        val kindOfInsurance : String,
+    )
+}

@@ -69,6 +69,7 @@ data class GetPayment(
         val payDate : String
     )
 }
+
 /*
 "paymentId": 0,
       "payCost": 0,
