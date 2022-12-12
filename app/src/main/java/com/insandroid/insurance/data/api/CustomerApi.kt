@@ -53,11 +53,24 @@ interface CustomerApi {
         @Header("userid") userid: Long
     ) : Response<PostMoneyResponse>
 
-    //보험금 청구하기 POST API
+    //사고처리 접수 POST API
     @POST("/insurance-customer/incident-accept")
     suspend fun postIncident(
         @Body body : PostIncident,
         @Header("userid") userid: Long
     ) : Response<PostMoneyResponse>
+
+    //보험금 납부내역
+    @GET("/insurance-customer/payment-history")
+    suspend fun getPayment(
+        @Header("userid") userid: Long
+    ) : Response<GetPayment>
+
+    //상담대기요청
+    @POST("/insurance-customer/consults")
+    suspend fun postConsults(
+        @Body body : LineUpConsultRequest,
+        @Header("userid") userid: Long
+    ) : Response<PostLoginResponse>
 
 }

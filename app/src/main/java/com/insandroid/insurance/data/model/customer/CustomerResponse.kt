@@ -54,6 +54,27 @@ data class PostLoginResponse(
     )
 }
 
+//보험금 납부내역 Response
+data class GetPayment(
+    val status : String,
+    val description : String,
+    val statusCode : Int,
+    val transaction_time : String,
+//
+    val data : List<PaymentHistory>
+){
+    data class PaymentHistory(
+        val paymentId : Int,
+        val payCost : Int,
+        val payDate : String
+    )
+}
+/*
+"paymentId": 0,
+      "payCost": 0,
+      "payDate": "string"
+
+ */
 /*
 {
   "data": {

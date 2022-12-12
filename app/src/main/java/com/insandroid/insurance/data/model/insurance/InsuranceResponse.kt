@@ -47,14 +47,7 @@ data class InsuranceGetCustomer(
 
     val data : List<GetInsCustomer>
 
-){
-    data class GetInsCustomer(
-        val customerName : String,
-        val phoneNum : String,
-        val kindOfInsurance : String,
-        val kindOfJob : String
-    )
-}
+)
 
 //사고 접수 리스트 Response
 data class IncidentGet(

@@ -52,4 +52,15 @@ class CustomerRepositoryImpl : CustomerRepository {
         return customerApi.postEmployee(postLogin)
     }
 
+    override suspend fun getPayment(userid: Long): Response<GetPayment> {
+        return customerApi.getPayment(userid)
+    }
+
+    override suspend fun postConsults(
+        lineUpConsultRequest: LineUpConsultRequest,
+        userid: Long
+    ): Response<PostLoginResponse> {
+        return customerApi.postConsults(lineUpConsultRequest, userid)
+    }
+
 }

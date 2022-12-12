@@ -30,6 +30,10 @@ data class PostLogin(
     val password : String
 )
 
+data class LineUpConsultRequest(
+    val kindOfInsurance : String
+)
+
 /*
 
  */

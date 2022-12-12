@@ -38,10 +38,12 @@ class HomeFragment  : Fragment(){
         if(kindOfRole == "employee"){
             binding.workerSv.visibility = View.VISIBLE
             binding.customerCl.visibility = View.INVISIBLE
+            binding.fabFavorite.visibility = View.VISIBLE
         }
         if(kindOfRole == "customer"){
             binding.workerSv.visibility = View.INVISIBLE
             binding.customerCl.visibility = View.VISIBLE
+            binding.fabFavorite.visibility = View.INVISIBLE
         }
         //관리자 뷰
         //보험 설계 버튼
@@ -105,6 +107,12 @@ class HomeFragment  : Fragment(){
         }
 
         //사용자뷰
+        //상담사 연결하기
+        binding.customerConnectLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentCusConnect()
+            findNavController().navigate(action)
+        }
+
         //상담사 평가하기
         binding.customerEvaluationLl.setOnClickListener {
             val action = HomeFragmentDirections.actionFragmentHomeToFragmentCusEvaluation()

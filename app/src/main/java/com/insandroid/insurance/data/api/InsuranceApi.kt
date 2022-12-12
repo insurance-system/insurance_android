@@ -1,5 +1,6 @@
 package com.insandroid.insurance.data.api
 
+import com.insandroid.insurance.data.model.customer.PostInsuranceResponse
 import com.insandroid.insurance.data.model.insurance.*
 import retrofit2.Response
 import retrofit2.http.Body
@@ -77,5 +78,12 @@ interface InsuranceApi {
         @Header("userid") userid: Long,
         @Path("incident_log_id") incident_log_id : Int
     ) : Response<IncidentGet> //Response 안쓰임
+
+    //상담 담당자 배정 API
+    @POST("/insurance-employee/sales/interest/{empCusId}")
+    suspend fun postSalesInterest(
+        @Header("userid") userid: Long,
+        @Path("empCusId") empCusId : Long
+    ) : Response<PostInsuranceResponse> //Response 안쓰임
 
 }

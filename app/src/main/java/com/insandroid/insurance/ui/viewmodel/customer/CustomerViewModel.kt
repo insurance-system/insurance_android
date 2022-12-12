@@ -103,32 +103,32 @@ class CustomerViewModel(
         }
     }
 
-//    //유저 로그인
-//    private val _postLogin = MutableLiveData<PostLoginResponse>()
-//    val postLogin : LiveData<PostLoginResponse>
-//        get() = _postLogin
-//
-//    fun postLogin(postLogin: PostLogin) = viewModelScope.launch(Dispatchers.IO) {
-//        val response = customerRepository.postLogin(postLogin)
-//
-//        if(response.isSuccessful){
-//            _postLogin.postValue(response.body())
-//
-//        }
-//    }
-//
-//    //사원 로그인
-//    private val _postEmployeeLogin = MutableLiveData<PostLoginResponse>()
-//    val postEmployeeLogin : LiveData<PostLoginResponse>
-//        get() = _postEmployeeLogin
-//
-//    fun postEmployeeLogin(postLogin: PostLogin) = viewModelScope.launch(Dispatchers.IO) {
-//        val response = customerRepository.postEmployeeLogin(postLogin)
-//
-//        if(response.isSuccessful){
-//            _postEmployeeLogin.postValue(response.body())
-//        }
-//    }
+    //보험금 납부내역
+    private val _getPayment = MutableLiveData<GetPayment>()
+    val getPayment : LiveData<GetPayment>
+        get() = _getPayment
+
+    fun getPayment(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.getPayment(userid)
+
+        if(response.isSuccessful){
+            _getPayment.postValue(response.body())
+        }
+    }
+
+    //상담 요청하기
+    private val _postConsults = MutableLiveData<PostLoginResponse>()
+    val postConsults : LiveData<PostLoginResponse>
+        get() = _postConsults
+
+    fun postConsults(lineUpConsultRequest: LineUpConsultRequest, userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.postConsults(lineUpConsultRequest, userid)
+
+        if(response.isSuccessful){
+            _postConsults.postValue(response.body())
+        }
+    }
+
 
     private val _insurance = MutableLiveData<String>("")
     val insurance: LiveData<String> = _insurance
