@@ -98,4 +98,17 @@ interface InsuranceApi {
         @Header("userid") userid: Long
     ) : Response<GetNonPayment>
 
+    //계약기간 만료 리스트 조회
+    @GET("/insurance-employee/contract/soon-expiration")
+    suspend fun getInsStateA(
+        @Header("userid") userid: Long
+    ) : Response<GetNonPayment>
+
+    //보험 납부 기간 만료 조회
+    @GET("/insurance-employee/contract/payment-soon-expiration")
+    suspend fun getInsStateB(
+        @Header("userid") userid: Long
+    ) : Response<GetNonPayment>
+
+
 }

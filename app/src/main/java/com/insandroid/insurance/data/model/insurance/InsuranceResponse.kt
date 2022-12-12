@@ -70,6 +70,7 @@ data class GetNonPayment(
     val data : List<NonPayment>
 ){
     data class NonPayment(
+        val insuranceStatus : String,
         val customerName : String,
         val phoneNum : String,
         val kindOfJob : String,

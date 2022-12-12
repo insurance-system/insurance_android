@@ -78,4 +78,14 @@ interface InsuranceRepository {
     suspend fun getLastInsurance(
         userid: Long,
     ) : Response<GetNonPayment>
+
+    //계약기간 만료 리스트 조회
+    suspend fun getInsStateA(
+        userid: Long,
+    ) : Response<GetNonPayment>
+
+    //보험 납부 기간 만료 조회
+    suspend fun getInsStateB(
+        userid: Long,
+    ) : Response<GetNonPayment>
 }

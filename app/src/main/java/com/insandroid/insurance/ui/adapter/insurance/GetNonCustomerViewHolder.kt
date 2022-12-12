@@ -30,7 +30,13 @@ class GetNonCustomerViewHolder( //item_check_customer
         binding.insKindOf.text = "보험 종류 : $kind"
         binding.customerJob.text = "직업 : ${nonPayment.kindOfJob}"
 
-        binding.insState.visibility = View.INVISIBLE
+        val state = when(nonPayment.insuranceStatus){
+            "UNDER_EXAMINATION" -> "인수심사중"
+            "PERMISSION" -> "허가"
+            else -> "불허"
+        }
+
+        binding.insState.text = state
         binding.customerInsName.text = "요금 : ${nonPayment.fee}"
     }
 /*

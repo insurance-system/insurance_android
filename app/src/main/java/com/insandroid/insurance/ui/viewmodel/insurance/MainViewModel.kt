@@ -172,7 +172,7 @@ class MainViewModel(
         }
     }
 
-    //만기 고객 조회
+    //보험 만기 고객 조회
     private val _getLastInsurance = MutableLiveData<GetNonPayment>()
     val getLastInsurance : LiveData<GetNonPayment>
         get() = _getLastInsurance
@@ -182,6 +182,32 @@ class MainViewModel(
 
         if(response.isSuccessful){
             _getLastInsurance.postValue(response.body())
+        }
+    }
+
+    //계약기간 만료 리스트 조회
+    private val _getInsStateA = MutableLiveData<GetNonPayment>()
+    val getInsStateA : LiveData<GetNonPayment>
+        get() = _getInsStateA
+
+    fun getInsStateA(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getInsStateA(userid)
+
+        if(response.isSuccessful){
+            _getInsStateA.postValue(response.body())
+        }
+    }
+
+    //보험 납부 기간 만료 조회
+    private val _getInsStateB = MutableLiveData<GetNonPayment>()
+    val getInsStateB : LiveData<GetNonPayment>
+        get() = _getInsStateB
+
+    fun getInsStateB(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getInsStateB(userid)
+
+        if(response.isSuccessful){
+            _getInsStateB.postValue(response.body())
         }
     }
 
