@@ -14,6 +14,7 @@ import com.insandroid.insurance.data.model.insurance.PatchInsTest
 import com.insandroid.insurance.databinding.FragmentSettingBinding
 import com.insandroid.insurance.databinding.FragmentWorkCheckDoBinding
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 
@@ -72,7 +73,7 @@ class WorkCheckDoFragment : Fragment(){
                     contractStatus = insState
                 )
 
-                mainViewModel.patchInsTest(1, patchInsTest)
+                mainViewModel.patchInsTest(InsuranceApplication.prefs.getString("id", "").toLong(), patchInsTest)
                 Toast.makeText(requireContext(), "제출 되었습니다.", Toast.LENGTH_SHORT).show()
 
                 val action = WorkCheckDoFragmentDirections.actionFragmentWorkCheckDoToFragmentHome()

@@ -14,6 +14,7 @@ import com.insandroid.insurance.data.model.insurance.InsurancePostLecture
 import com.insandroid.insurance.databinding.FragmentWorkEduUploadBinding
 import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 //영업 교육 강의 업로드 뷰
@@ -51,7 +52,7 @@ class WorkEduUploadFragment : Fragment(){
                     lectureUrl = binding.workEduUploadUrlEt.text.toString()
                 )
 
-                mainViewModel.postLecture(1, insurancePostLecture)
+                mainViewModel.postLecture(InsuranceApplication.prefs.getString("id", "").toLong(), insurancePostLecture)
 
                 Toast.makeText(requireContext(), "영업 교육 업로드 완료하였습니다.", Toast.LENGTH_SHORT)
                     .show()

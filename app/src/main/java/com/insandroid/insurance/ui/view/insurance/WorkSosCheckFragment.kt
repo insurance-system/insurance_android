@@ -14,6 +14,7 @@ import com.insandroid.insurance.databinding.FragmentWorkSosCheckBinding
 import com.insandroid.insurance.ui.adapter.insurance.IncidentGetAdapter
 import com.insandroid.insurance.ui.adapter.insurance.InsMoneyTestAdapter
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 //사고 발생 신고 접수확인 뷰
@@ -40,7 +41,7 @@ class WorkSosCheckFragment: Fragment(){
 
         mainViewModel = (activity as MainActivity).mainViewModel
 
-        mainViewModel.getIncident(1)
+        mainViewModel.getIncident(InsuranceApplication.prefs.getString("id", "").toLong())
 
         mainViewModel.getIncident.observe(viewLifecycleOwner) {
             val result = it.data

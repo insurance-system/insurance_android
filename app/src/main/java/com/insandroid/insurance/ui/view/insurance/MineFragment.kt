@@ -49,7 +49,7 @@ class MineFragment  : Fragment(){
         if(kindOfRole == "customer"){
             customerViewModel = (activity as MainActivity).customerViewModel
 
-            customerViewModel.getMyInsurance(2)
+            customerViewModel.getMyInsurance(InsuranceApplication.prefs.getString("id", "").toLong())
 
             customerViewModel.myInsurance.observe(viewLifecycleOwner) {
                 val result = it.data

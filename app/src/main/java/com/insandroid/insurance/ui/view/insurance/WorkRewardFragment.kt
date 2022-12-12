@@ -14,6 +14,7 @@ import com.insandroid.insurance.databinding.FragmentWorkSosCheckBinding
 import com.insandroid.insurance.ui.adapter.insurance.InsMoneyTestAdapter
 import com.insandroid.insurance.ui.adapter.insurance.InsuranceTestAdapter
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 //보상금 심사 뷰
@@ -40,7 +41,7 @@ class WorkRewardFragment: Fragment(){
 
         mainViewModel = (activity as MainActivity).mainViewModel
 
-        mainViewModel.getMoneyTest(1)
+        mainViewModel.getMoneyTest(InsuranceApplication.prefs.getString("id", "").toLong())
 
         mainViewModel.getInsMoneyTest.observe(viewLifecycleOwner) {
             val result = it.data

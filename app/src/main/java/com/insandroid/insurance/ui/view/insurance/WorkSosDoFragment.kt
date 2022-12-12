@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.insandroid.insurance.databinding.FragmentSettingBinding
 import com.insandroid.insurance.databinding.FragmentWorkSosDoBinding
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 class WorkSosDoFragment : Fragment(){
@@ -54,7 +55,7 @@ class WorkSosDoFragment : Fragment(){
         binding.workSosDoKind.text = "사고 종류 : ${category}"
 
         binding.bt.setOnClickListener {
-            mainViewModel.patchIncident(1, incidentInfor.incidentLogId)
+            mainViewModel.patchIncident(InsuranceApplication.prefs.getString("id", "").toLong(), incidentInfor.incidentLogId)
 
             Toast.makeText(requireContext(), "배정 되었습니다.", Toast.LENGTH_SHORT).show()
 

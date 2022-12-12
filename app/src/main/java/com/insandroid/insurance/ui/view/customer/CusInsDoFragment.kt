@@ -16,6 +16,7 @@ import com.insandroid.insurance.data.model.customer.PostInsurance
 import com.insandroid.insurance.data.model.customer.PostInsuranceResponse
 import com.insandroid.insurance.databinding.FragmentCusInsDoBinding
 import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 class CusInsDoFragment : Fragment(){
@@ -57,7 +58,7 @@ class CusInsDoFragment : Fragment(){
                 insuranceId = insurance.insuranceId
             )
 
-            customerViewModel.postInsurance(postInsurance, 2)
+            customerViewModel.postInsurance(postInsurance, InsuranceApplication.prefs.getString("id", "").toLong())
 
             Toast.makeText(requireContext(), "보험 신청되었습니다.", Toast.LENGTH_SHORT).show()
             val handler = Handler(Looper.getMainLooper())

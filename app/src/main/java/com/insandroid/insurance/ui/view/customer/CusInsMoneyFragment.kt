@@ -15,6 +15,7 @@ import com.insandroid.insurance.data.model.customer.PostMoney
 import com.insandroid.insurance.databinding.FragmentCusCheckBinding
 import com.insandroid.insurance.databinding.FragmentCusInsMoneyBinding
 import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 class CusInsMoneyFragment : Fragment(){
@@ -50,7 +51,7 @@ class CusInsMoneyFragment : Fragment(){
                 claimCost = binding.cusInsMoney.text.toString().toInt()
             )
 
-            customerViewModel.postMoney(2, postMoney)
+            customerViewModel.postMoney(InsuranceApplication.prefs.getString("id", "").toLong(), postMoney)
 
             Toast.makeText(requireContext(), "보험금 신청하였습니다.", Toast.LENGTH_SHORT).show()
             val handler = Handler(Looper.getMainLooper())
