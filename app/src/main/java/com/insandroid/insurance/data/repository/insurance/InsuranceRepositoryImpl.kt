@@ -72,4 +72,20 @@ class InsuranceRepositoryImpl : InsuranceRepository {
     ): Response<PostInsuranceResponse> {
         return insuranceApi.postSalesInterest(userid, empCusId)
     }
+
+    override suspend fun getNonPayment(userid: Long): Response<GetNonPayment> {
+        return insuranceApi.getNonPayment(userid)
+    }
+
+    override suspend fun getLastInsurance(userid: Long): Response<GetNonPayment> {
+        return insuranceApi.getLastInsurance(userid)
+    }
+
+    override suspend fun getInsStateA(userid: Long): Response<GetNonPayment> {
+        return insuranceApi.getInsStateA(userid)
+    }
+
+    override suspend fun getInsStateB(userid: Long): Response<GetNonPayment> {
+        return insuranceApi.getInsStateB(userid)
+    }
 }

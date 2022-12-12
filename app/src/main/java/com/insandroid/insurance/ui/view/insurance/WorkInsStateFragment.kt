@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.insandroid.insurance.databinding.FragmentWorkInsStateBinding
 import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
 
@@ -21,6 +22,21 @@ class WorkInsStateFragment : Fragment() {
     ): View? {
         _binding = FragmentWorkInsStateBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        binding.workerLastMoneyLl.setOnClickListener {
+            val action = WorkInsStateFragmentDirections.actionFragmentWorkInsStateToFragmentWorkInsStateB()
+            findNavController().navigate(action)
+        }
+
+        binding.workerLastContractLl.setOnClickListener {
+            val action = WorkInsStateFragmentDirections.actionFragmentWorkInsStateToFragmentWorkInsStateA()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

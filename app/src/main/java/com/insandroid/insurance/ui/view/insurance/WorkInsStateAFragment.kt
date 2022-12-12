@@ -6,29 +6,30 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.insandroid.insurance.databinding.FragmentWorkInsStateABinding
+import com.insandroid.insurance.databinding.FragmentWorkInsStateBinding
 import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
-import com.insandroid.insurance.databinding.FragmentWorkNotCustomerBinding
 import com.insandroid.insurance.ui.adapter.insurance.GetNonCustomerAdapter
-import com.insandroid.insurance.ui.adapter.insurance.InsCustomerAdapter
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
 import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
-//미납 고객 조회 뷰
-class WorkNotCustomerFragment: Fragment(){
-    private var _binding : FragmentWorkNotCustomerBinding?= null
-    private val binding : FragmentWorkNotCustomerBinding
+//보험 계약 상태
+class WorkInsStateAFragment : Fragment() {
+    private var _binding: FragmentWorkInsStateABinding? = null
+    private val binding: FragmentWorkInsStateABinding
         get() = _binding!!
 
     private lateinit var mainViewModel: MainViewModel
 
     private lateinit var getNonCustomerAdapter : GetNonCustomerAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentWorkNotCustomerBinding.inflate(inflater, container, false)
+        _binding = FragmentWorkInsStateABinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,15 +38,14 @@ class WorkNotCustomerFragment: Fragment(){
 
         mainViewModel = (activity as MainActivity).mainViewModel
 
-        mainViewModel.getNonPayment(InsuranceApplication.prefs.getString("id", "").toLong())
+        mainViewModel.getInsStateA(InsuranceApplication.prefs.getString("id", "").toLong())
 
-        mainViewModel.getNonPayment.observe(viewLifecycleOwner) {
+        mainViewModel.getInsStateA.observe(viewLifecycleOwner) {
             val result = it.data
             getNonCustomerAdapter.submitList(result)
         }
 
         setUpRecyclerView()
-
     }
 
     private fun setUpRecyclerView(){
@@ -66,5 +66,4 @@ class WorkNotCustomerFragment: Fragment(){
         _binding = null
         super.onDestroyView()
     }
-
 }

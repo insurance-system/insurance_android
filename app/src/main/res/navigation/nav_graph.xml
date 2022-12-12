@@ -157,7 +157,14 @@
         android:id="@+id/fragment_work_ins_state"
         android:name="com.insandroid.insurance.ui.view.insurance.WorkInsStateFragment"
         android:label="WorkInsStateFragment"
-        tools:layout="@layout/fragment_work_ins_state"/>
+        tools:layout="@layout/fragment_work_ins_state">
+        <action
+            android:id="@+id/action_fragment_work_ins_state_to_fragment_work_ins_state_a"
+            app:destination="@id/fragment_work_ins_state_a" />
+        <action
+            android:id="@+id/action_fragment_work_ins_state_to_fragment_work_ins_state_b"
+            app:destination="@id/fragment_work_ins_state_b" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_work_last_customer"
         android:name="com.insandroid.insurance.ui.view.insurance.WorkLastCustomerFragment"
@@ -330,4 +337,14 @@
             app:popUpTo="@id/fragment_cus_connect"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_work_ins_state_a"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkInsStateAFragment"
+        android:label="WorkInsStateAFragment"
+        tools:layout="@layout/fragment_work_ins_state_a"/>
+    <fragment
+        android:id="@+id/fragment_work_ins_state_b"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkInsStateBFragment"
+        android:label="WorkInsStateBFragment"
+        tools:layout="@layout/fragment_work_ins_state_b"/>
 </navigation>

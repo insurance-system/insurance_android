@@ -159,6 +159,58 @@ class MainViewModel(
         }
     }
 
+    //미납 고객 조회
+    private val _getNonPayment = MutableLiveData<GetNonPayment>()
+    val getNonPayment : LiveData<GetNonPayment>
+        get() = _getNonPayment
+
+    fun getNonPayment(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getNonPayment(userid)
+
+        if(response.isSuccessful){
+            _getNonPayment.postValue(response.body())
+        }
+    }
+
+    //보험 만기 고객 조회
+    private val _getLastInsurance = MutableLiveData<GetNonPayment>()
+    val getLastInsurance : LiveData<GetNonPayment>
+        get() = _getLastInsurance
+
+    fun getLastInsurance(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getLastInsurance(userid)
+
+        if(response.isSuccessful){
+            _getLastInsurance.postValue(response.body())
+        }
+    }
+
+    //계약기간 만료 리스트 조회
+    private val _getInsStateA = MutableLiveData<GetNonPayment>()
+    val getInsStateA : LiveData<GetNonPayment>
+        get() = _getInsStateA
+
+    fun getInsStateA(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getInsStateA(userid)
+
+        if(response.isSuccessful){
+            _getInsStateA.postValue(response.body())
+        }
+    }
+
+    //보험 납부 기간 만료 조회
+    private val _getInsStateB = MutableLiveData<GetNonPayment>()
+    val getInsStateB : LiveData<GetNonPayment>
+        get() = _getInsStateB
+
+    fun getInsStateB(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.getInsStateB(userid)
+
+        if(response.isSuccessful){
+            _getInsStateB.postValue(response.body())
+        }
+    }
+
 
 
 }

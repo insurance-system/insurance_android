@@ -63,8 +63,29 @@ interface InsuranceRepository {
         incident_log_id : Int,
     ) : Response<IncidentGet>
 
+    //상담사 배정
     suspend fun postSalesInterest(
         userid: Long,
         empCusId : Long,
     ): Response<PostInsuranceResponse>
+
+    //미납고객조회
+    suspend fun getNonPayment(
+        userid: Long,
+    ) : Response<GetNonPayment>
+
+    //만기고객조회
+    suspend fun getLastInsurance(
+        userid: Long,
+    ) : Response<GetNonPayment>
+
+    //계약기간 만료 리스트 조회
+    suspend fun getInsStateA(
+        userid: Long,
+    ) : Response<GetNonPayment>
+
+    //보험 납부 기간 만료 조회
+    suspend fun getInsStateB(
+        userid: Long,
+    ) : Response<GetNonPayment>
 }
