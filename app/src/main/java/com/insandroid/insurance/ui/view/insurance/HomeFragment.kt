@@ -1,5 +1,6 @@
 package com.insandroid.insurance.ui.view.insurance
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.insandroid.insurance.databinding.FragmentHomeBinding
+import com.insandroid.insurance.util.InsuranceApplication
 
 //홈 화면
 class HomeFragment  : Fragment(){
@@ -23,9 +25,24 @@ class HomeFragment  : Fragment(){
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val name = InsuranceApplication.prefs.getString("name", "")
+
+        binding.customerIntroduceTv.text = "${name}님 반갑습니다."
+
+        val kindOfRole = InsuranceApplication.prefs.getString("kindOfRole", "")
+
+        if(kindOfRole == "employee"){
+            binding.workerSv.visibility = View.VISIBLE
+            binding.customerCl.visibility = View.INVISIBLE
+        }
+        if(kindOfRole == "customer"){
+            binding.workerSv.visibility = View.INVISIBLE
+            binding.customerCl.visibility = View.VISIBLE
+        }
         //관리자 뷰
         //보험 설계 버튼
         binding.fabFavorite.setOnClickListener {

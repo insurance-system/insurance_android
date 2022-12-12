@@ -44,4 +44,12 @@ class CustomerRepositoryImpl : CustomerRepository {
         return customerApi.postIncident(postIncident, userid)
     }
 
+    override fun postLogin(postLogin: PostLogin): Call<PostLoginResponse> {
+        return customerApi.postCustomer(postLogin)
+    }
+
+    override fun postEmployeeLogin(postLogin: PostLogin): Call<PostLoginResponse> {
+        return customerApi.postEmployee(postLogin)
+    }
+
 }

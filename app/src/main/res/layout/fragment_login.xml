@@ -67,6 +67,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_id_et" />
 
+    <TextView
+        android:id="@+id/login_no_success"
+        android:text="이메일과 비밀번호를 확인해주세요."
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/purple_200"
+        app:layout_constraintTop_toBottomOf="@id/sign_in_pw_et"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_in_login_bt"
         android:layout_width="match_parent"
@@ -79,7 +92,7 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sign_in_pw_et"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="40dp"
         />
 
     <TextView

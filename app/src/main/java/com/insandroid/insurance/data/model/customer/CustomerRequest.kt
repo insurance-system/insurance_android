@@ -23,6 +23,16 @@ data class PostIncident(
     val incidentPhoneNumber : String,
     val incidentCategory : String,
 )
+
+//로그인 Request
+data class PostLogin(
+    val email : String,
+    val password : String
+)
+
+/*
+
+ */
 /*
   "incidentDate": "string",
   "carNumber": "string",

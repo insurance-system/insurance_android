@@ -39,4 +39,14 @@ interface CustomerRepository {
         userid: Long,
         postIncident: PostIncident
     ) : Response<PostMoneyResponse>
+
+    //유저 로그인
+    fun postLogin(
+        postLogin: PostLogin
+    ) : Call<PostLoginResponse>
+
+    //사원 로그인
+    fun postEmployeeLogin(
+        postLogin: PostLogin
+    ) : Call<PostLoginResponse>
 }

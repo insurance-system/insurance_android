@@ -12,6 +12,7 @@ import com.insandroid.insurance.ui.adapter.customer.MyInsuranceAdapter
 import com.insandroid.insurance.ui.adapter.insurance.InsMoneyTestAdapter
 import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModel
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 //내 보험 화면
@@ -35,17 +36,33 @@ class MineFragment  : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val name = InsuranceApplication.prefs.getString("name", "")
 
-        customerViewModel = (activity as MainActivity).customerViewModel
+        binding.mineMyIns.text = "${name}님의 보험"
 
-        customerViewModel.getMyInsurance(2)
+        val kindOfRole = InsuranceApplication.prefs.getString("kindOfRole", "")
 
-        customerViewModel.myInsurance.observe(viewLifecycleOwner) {
-            val result = it.data
-            myInsuranceAdapter.submitList(result)
+        if(kindOfRole == "employee"){
+            binding.workerEduGetRv.visibility = View.INVISIBLE
+            binding.workerMineTv.visibility = View.VISIBLE
+        }
+        if(kindOfRole == "customer"){
+            customerViewModel = (activity as MainActivity).customerViewModel
+
+            customerViewModel.getMyInsurance(2)
+
+            customerViewModel.myInsurance.observe(viewLifecycleOwner) {
+                val result = it.data
+                myInsuranceAdapter.submitList(result)
+            }
+
+            setUpRecyclerView()
+
+            binding.workerEduGetRv.visibility = View.VISIBLE
+            binding.workerMineTv.visibility = View.INVISIBLE
+
         }
 
-        setUpRecyclerView()
 
     }
 
