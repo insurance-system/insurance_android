@@ -21,6 +21,10 @@ class CustomerViewModel(
     //회원가입 API
     fun customerJoin(joinDataRequest: JoinDataRequest) = customerRepository.customerJoin(joinDataRequest)
 
+    fun postLogin(postLogin: PostLogin) = customerRepository.postLogin(postLogin)
+
+    fun postEmployeeLogin(postLogin: PostLogin) = customerRepository.postEmployeeLogin(postLogin)
+
     //보험된 가입 정보 불러오기
     private val _myInsurance = MutableLiveData<MyInsurance>()
     val myInsurance : LiveData<MyInsurance>
@@ -98,6 +102,33 @@ class CustomerViewModel(
             _postIncident.postValue(response.body())
         }
     }
+
+//    //유저 로그인
+//    private val _postLogin = MutableLiveData<PostLoginResponse>()
+//    val postLogin : LiveData<PostLoginResponse>
+//        get() = _postLogin
+//
+//    fun postLogin(postLogin: PostLogin) = viewModelScope.launch(Dispatchers.IO) {
+//        val response = customerRepository.postLogin(postLogin)
+//
+//        if(response.isSuccessful){
+//            _postLogin.postValue(response.body())
+//
+//        }
+//    }
+//
+//    //사원 로그인
+//    private val _postEmployeeLogin = MutableLiveData<PostLoginResponse>()
+//    val postEmployeeLogin : LiveData<PostLoginResponse>
+//        get() = _postEmployeeLogin
+//
+//    fun postEmployeeLogin(postLogin: PostLogin) = viewModelScope.launch(Dispatchers.IO) {
+//        val response = customerRepository.postEmployeeLogin(postLogin)
+//
+//        if(response.isSuccessful){
+//            _postEmployeeLogin.postValue(response.body())
+//        }
+//    }
 
     private val _insurance = MutableLiveData<String>("")
     val insurance: LiveData<String> = _insurance

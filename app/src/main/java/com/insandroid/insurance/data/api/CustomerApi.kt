@@ -14,6 +14,18 @@ interface CustomerApi {
         @Body body : JoinDataRequest
     ) : Call<JoinDataResponse>
 
+    //고객 로그인 POST API
+    @POST("/customer/login")
+    fun postCustomer(
+        @Body body : PostLogin
+    ) : Call<PostLoginResponse>
+
+    //관리자 로그인 POST API
+    @POST("/employee/login")
+    fun postEmployee(
+        @Body body : PostLogin
+    ) : Call<PostLoginResponse>
+
     //가입된 보험 정보 리스트 GET API
     @GET("/insurance-customer/insurance")
     suspend fun getMyInsurance(

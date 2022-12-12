@@ -18,6 +18,19 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="15dp"/>
 
+    <TextView
+        android:id="@+id/worker_mine_tv"
+        android:text="관리자 계정입니다.\n내 보험이 없습니다."
+        android:textSize="24sp"
+        android:textColor="@color/purple_200"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/worker_edu_get_rv"
         android:layout_width="0dp"
