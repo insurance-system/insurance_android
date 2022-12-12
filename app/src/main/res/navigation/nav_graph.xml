@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_fragment_home_to_fragment_work_check"
             app:destination="@id/fragment_work_check" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_cus_connect"
+            app:destination="@id/fragment_cus_connect" />
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
@@ -315,5 +318,16 @@
         <argument
             android:name="kind"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_cus_connect"
+        android:name="com.insandroid.insurance.ui.view.customer.CusConnectFragment"
+        android:label="CusConnectFragment"
+        tools:layout="@layout/fragment_cus_connect">
+        <action
+            android:id="@+id/action_fragment_cus_connect_to_fragment_home"
+            app:destination="@id/fragment_home"
+            app:popUpTo="@id/fragment_cus_connect"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

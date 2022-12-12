@@ -56,4 +56,11 @@ class CustomerRepositoryImpl : CustomerRepository {
         return customerApi.getPayment(userid)
     }
 
+    override suspend fun postConsults(
+        lineUpConsultRequest: LineUpConsultRequest,
+        userid: Long
+    ): Response<PostLoginResponse> {
+        return customerApi.postConsults(lineUpConsultRequest, userid)
+    }
+
 }

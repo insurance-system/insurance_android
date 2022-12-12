@@ -116,6 +116,19 @@ class CustomerViewModel(
         }
     }
 
+    //상담 요청하기
+    private val _postConsults = MutableLiveData<PostLoginResponse>()
+    val postConsults : LiveData<PostLoginResponse>
+        get() = _postConsults
+
+    fun postConsults(lineUpConsultRequest: LineUpConsultRequest, userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.postConsults(lineUpConsultRequest, userid)
+
+        if(response.isSuccessful){
+            _postConsults.postValue(response.body())
+        }
+    }
+
 
     private val _insurance = MutableLiveData<String>("")
     val insurance: LiveData<String> = _insurance

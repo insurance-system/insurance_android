@@ -107,6 +107,12 @@ class HomeFragment  : Fragment(){
         }
 
         //사용자뷰
+        //상담사 연결하기
+        binding.customerConnectLl.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentCusConnect()
+            findNavController().navigate(action)
+        }
+
         //상담사 평가하기
         binding.customerEvaluationLl.setOnClickListener {
             val action = HomeFragmentDirections.actionFragmentHomeToFragmentCusEvaluation()

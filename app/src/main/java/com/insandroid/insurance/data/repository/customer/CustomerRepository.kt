@@ -54,4 +54,12 @@ interface CustomerRepository {
     suspend fun getPayment(
         userid: Long,
     ) : Response<GetPayment>
+
+    //상담 요청하기
+    suspend fun postConsults(
+        lineUpConsultRequest: LineUpConsultRequest,
+        userid: Long,
+    ) : Response<PostLoginResponse>
+
+
 }

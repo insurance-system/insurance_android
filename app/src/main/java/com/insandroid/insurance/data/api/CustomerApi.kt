@@ -66,4 +66,11 @@ interface CustomerApi {
         @Header("userid") userid: Long
     ) : Response<GetPayment>
 
+    //상담대기요청
+    @POST("/insurance-customer/consults")
+    suspend fun postConsults(
+        @Body body : LineUpConsultRequest,
+        @Header("userid") userid: Long
+    ) : Response<PostLoginResponse>
+
 }
