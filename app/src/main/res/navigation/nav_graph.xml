@@ -129,7 +129,11 @@
         android:id="@+id/fragment_work_new_customer"
         android:name="com.insandroid.insurance.ui.view.insurance.WorkNewCustomerFragment"
         android:label="WorkNewCustomerFragment"
-        tools:layout="@layout/fragment_work_new_customer"/>
+        tools:layout="@layout/fragment_work_new_customer">
+        <action
+            android:id="@+id/action_fragment_work_new_customer_to_fragment_work_new_cus_do"
+            app:destination="@id/fragment_work_new_cus_do" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_work_edu_upload"
         android:name="com.insandroid.insurance.ui.view.insurance.WorkEduUploadFragment"
@@ -288,5 +292,28 @@
         <argument
             android:name="insurance"
             app:argType="com.insandroid.insurance.data.model.customer.GetMyInsurance" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_work_new_cus_do"
+        android:name="com.insandroid.insurance.ui.view.insurance.WorkNewCusDoFragment"
+        android:label="WorkNewCusDoFragment"
+        tools:layout="@layout/fragment_work_new_cus_do">
+        <action
+            android:id="@+id/action_fragment_work_new_cus_do_to_fragment_home"
+            app:destination="@id/fragment_home"
+            app:popUpTo="@id/fragment_work_new_cus_do"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="long" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="phone"
+            app:argType="string" />
+        <argument
+            android:name="kind"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
 import com.insandroid.insurance.ui.adapter.insurance.EduPrintAdapter
@@ -55,6 +56,10 @@ class WorkNewCustomerFragment: Fragment(){
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = insCustomerAdapter
         }
+//        insCustomerAdapter.setOnItemClickListener {
+//            val action  = WorkNewCustomerFragmentDirections.actionFragmentWorkNewCustomerToFragmentWorkNewCusDo(it)
+//            findNavController().navigate(action)
+//        }
 
     }
 

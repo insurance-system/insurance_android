@@ -1,5 +1,6 @@
 package com.insandroid.insurance.data.repository.insurance
 
+import com.insandroid.insurance.data.model.customer.PostInsuranceResponse
 import com.insandroid.insurance.data.model.insurance.*
 import retrofit2.Response
 import retrofit2.http.Header
@@ -61,4 +62,9 @@ interface InsuranceRepository {
         userid: Long,
         incident_log_id : Int,
     ) : Response<IncidentGet>
+
+    suspend fun postSalesInterest(
+        userid: Long,
+        empCusId : Long,
+    ): Response<PostInsuranceResponse>
 }

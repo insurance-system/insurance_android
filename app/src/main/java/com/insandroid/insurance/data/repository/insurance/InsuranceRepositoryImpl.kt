@@ -1,6 +1,7 @@
 package com.insandroid.insurance.data.repository.insurance
 
 import com.insandroid.insurance.data.api.RetrofitInstance.insuranceApi
+import com.insandroid.insurance.data.model.customer.PostInsuranceResponse
 import com.insandroid.insurance.data.model.insurance.*
 import retrofit2.Response
 import retrofit2.http.Header
@@ -63,5 +64,12 @@ class InsuranceRepositoryImpl : InsuranceRepository {
         incident_log_id: Int
     ): Response<IncidentGet> {
         return insuranceApi.patchIncident(userid, incident_log_id)
+    }
+
+    override suspend fun postSalesInterest(
+        userid: Long,
+        empCusId: Long
+    ): Response<PostInsuranceResponse> {
+        return insuranceApi.postSalesInterest(userid, empCusId)
     }
 }

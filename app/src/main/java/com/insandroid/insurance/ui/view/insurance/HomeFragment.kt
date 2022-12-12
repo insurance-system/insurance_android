@@ -38,10 +38,12 @@ class HomeFragment  : Fragment(){
         if(kindOfRole == "employee"){
             binding.workerSv.visibility = View.VISIBLE
             binding.customerCl.visibility = View.INVISIBLE
+            binding.fabFavorite.visibility = View.VISIBLE
         }
         if(kindOfRole == "customer"){
             binding.workerSv.visibility = View.INVISIBLE
             binding.customerCl.visibility = View.VISIBLE
+            binding.fabFavorite.visibility = View.INVISIBLE
         }
         //관리자 뷰
         //보험 설계 버튼

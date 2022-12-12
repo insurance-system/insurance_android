@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.insandroid.insurance.data.model.customer.PostInsuranceResponse
 import com.insandroid.insurance.data.model.insurance.*
 import com.insandroid.insurance.data.repository.insurance.InsuranceRepository
 import kotlinx.coroutines.Dispatchers
@@ -142,6 +143,19 @@ class MainViewModel(
 
         if(response.isSuccessful){
             _patchIncident.postValue(response.body())
+        }
+    }
+
+    //상담사 배정
+    private val _postSalesInterest = MutableLiveData<PostInsuranceResponse>()
+    val postSalesInterest : LiveData<PostInsuranceResponse>
+        get() = _postSalesInterest
+
+    fun postSalesInterest(userid : Long, empCusId : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = insuranceRepository.postSalesInterest(userid, empCusId)
+
+        if(response.isSuccessful){
+            _postSalesInterest.postValue(response.body())
         }
     }
 
