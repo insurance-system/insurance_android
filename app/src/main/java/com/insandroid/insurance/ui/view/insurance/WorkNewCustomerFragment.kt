@@ -10,6 +10,7 @@ import com.insandroid.insurance.databinding.FragmentWorkNewCustomerBinding
 import com.insandroid.insurance.ui.adapter.insurance.EduPrintAdapter
 import com.insandroid.insurance.ui.adapter.insurance.InsCustomerAdapter
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 //상담 대기 신규 고객 명단 조회 뷰
@@ -36,7 +37,7 @@ class WorkNewCustomerFragment: Fragment(){
 
         mainViewModel = (activity as MainActivity).mainViewModel
 
-        mainViewModel.getInsCustomer(1)
+        mainViewModel.getInsCustomer(InsuranceApplication.prefs.getString("id", "").toLong())
 
         mainViewModel.getInsCustomer.observe(viewLifecycleOwner) {
             val result = it.data

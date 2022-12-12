@@ -13,6 +13,7 @@ import com.insandroid.insurance.R
 import com.insandroid.insurance.data.model.insurance.WriteDataRequest
 import com.insandroid.insurance.databinding.FragmentWriteBinding
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 //보험 작성 화면
@@ -97,7 +98,7 @@ class WriteFragment : Fragment(){
                     kindOfInsurance = kind
                 )
 
-                mainViewModel.insuranceWrite(1, writeDataRequest)
+                mainViewModel.insuranceWrite(InsuranceApplication.prefs.getString("id", "").toLong(), writeDataRequest)
 
                 Toast.makeText(requireContext(), "보험설계를 완료하였습니다.", Toast.LENGTH_SHORT).show()
                 val handler = Handler(Looper.getMainLooper())

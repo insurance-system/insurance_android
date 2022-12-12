@@ -14,6 +14,7 @@ import com.insandroid.insurance.databinding.FragmentCusUnlifeInsBinding
 import com.insandroid.insurance.ui.adapter.customer.MyInsuranceAdapter
 import com.insandroid.insurance.ui.adapter.customer.NonInsuranceAdapter
 import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 class CusUnlifeInsFragment : Fragment(){
@@ -39,7 +40,7 @@ class CusUnlifeInsFragment : Fragment(){
 
         customerViewModel = (activity as MainActivity).customerViewModel
 
-        customerViewModel.getNonInsurance(4, "NON_LIFE")
+        customerViewModel.getNonInsurance(InsuranceApplication.prefs.getString("id", "").toLong(), "NON_LIFE")
 
         customerViewModel.getNonInsurance.observe(viewLifecycleOwner) {
             val result = it.data

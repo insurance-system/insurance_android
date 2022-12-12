@@ -14,6 +14,7 @@ import com.insandroid.insurance.data.model.customer.PostIncident
 import com.insandroid.insurance.databinding.FragmentCusAccidentBinding
 import com.insandroid.insurance.databinding.FragmentCusCheckBinding
 import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 class CusAccidentFragment : Fragment(){
@@ -62,7 +63,7 @@ class CusAccidentFragment : Fragment(){
                     incidentSite = binding.cusAccidentRegion.text.toString(),
                     incidentCategory = incident
                 )
-                customerViewModel.postIncident(2, postIncident)
+                customerViewModel.postIncident(InsuranceApplication.prefs.getString("id", "").toLong(), postIncident)
 
                 Toast.makeText(requireContext(), "사고 접수되었습니다.", Toast.LENGTH_SHORT).show()
                 val handler = Handler(Looper.getMainLooper())

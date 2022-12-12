@@ -14,6 +14,7 @@ import com.insandroid.insurance.data.model.insurance.PatchMoneyTest
 import com.insandroid.insurance.databinding.FragmentSettingBinding
 import com.insandroid.insurance.databinding.FragmentWorkRewardDoBinding
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 class WorkRewardDoFragment : Fragment(){
@@ -56,7 +57,7 @@ class WorkRewardDoFragment : Fragment(){
                     evaluateFee = binding.writeInsuranceFee.text.toString().toInt()
                 )
 
-                mainViewModel.patchMoneyTest(1, patchMoneyTest)
+                mainViewModel.patchMoneyTest(InsuranceApplication.prefs.getString("id", "").toLong(), patchMoneyTest)
                 Toast.makeText(requireContext(), "제출 되었습니다.", Toast.LENGTH_SHORT).show()
 
                 val action = WorkRewardDoFragmentDirections.actionFragmentWorkRewardDoToFragmentHome()

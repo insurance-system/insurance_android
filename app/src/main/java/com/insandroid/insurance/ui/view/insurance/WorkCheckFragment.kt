@@ -12,6 +12,7 @@ import com.insandroid.insurance.databinding.FragmentWorkCheckBinding
 import com.insandroid.insurance.ui.adapter.insurance.EduPrintAdapter
 import com.insandroid.insurance.ui.adapter.insurance.InsuranceTestAdapter
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 //인수 심사 리스트 뷰
@@ -38,7 +39,7 @@ class WorkCheckFragment : Fragment(){
 
         mainViewModel = (activity as MainActivity).mainViewModel
 
-        mainViewModel.getInsuranceTest(1)
+        mainViewModel.getInsuranceTest(InsuranceApplication.prefs.getString("id", "").toLong())
 
         mainViewModel.getInsuranceTest.observe(viewLifecycleOwner) {
             val result = it.data

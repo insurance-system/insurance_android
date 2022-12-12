@@ -15,6 +15,7 @@ import com.insandroid.insurance.ui.adapter.customer.MyInsuranceAdapter
 import com.insandroid.insurance.ui.adapter.customer.NonInsuranceAdapter
 import com.insandroid.insurance.ui.view.insurance.WorkRewardFragmentDirections
 import com.insandroid.insurance.ui.viewmodel.customer.CustomerViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 class CusLifeInsFragment : Fragment(){
@@ -41,7 +42,7 @@ class CusLifeInsFragment : Fragment(){
 
         customerViewModel = (activity as MainActivity).customerViewModel
 
-        customerViewModel.getInsurance(4, "LIFE")
+        customerViewModel.getInsurance(InsuranceApplication.prefs.getString("id", "").toLong(), "LIFE")
 
         customerViewModel.getInsurance.observe(viewLifecycleOwner) {
             val result = it.data

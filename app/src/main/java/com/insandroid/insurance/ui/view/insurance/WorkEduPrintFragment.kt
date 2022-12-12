@@ -11,6 +11,7 @@ import com.insandroid.insurance.databinding.FragmentWorkEduPrintBinding
 import com.insandroid.insurance.databinding.FragmentWorkEduUploadBinding
 import com.insandroid.insurance.ui.adapter.insurance.EduPrintAdapter
 import com.insandroid.insurance.ui.viewmodel.insurance.MainViewModel
+import com.insandroid.insurance.util.InsuranceApplication
 import com.insandroid.insurance.util.MainActivity
 
 //강의 자료 출력 뷰
@@ -37,7 +38,7 @@ class WorkEduPrintFragment : Fragment(){
 
         mainViewModel = (activity as MainActivity).mainViewModel
 
-        mainViewModel.getLecture(1)
+        mainViewModel.getLecture(InsuranceApplication.prefs.getString("id", "").toLong())
 
         mainViewModel.getLecture.observe(viewLifecycleOwner) {
             val result = it.data
