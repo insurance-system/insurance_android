@@ -24,6 +24,7 @@ data class InsuranceGetTest(
     val description : String,
     val statusCode : Int,
     val transaction_time : String,
+    val errorCode : String,
 
     val data : List<GetInsuranceTest>
 )
