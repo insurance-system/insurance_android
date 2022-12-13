@@ -70,6 +70,35 @@ data class GetPayment(
     )
 }
 
+//사고처리 접수 리스트
+data class GetDamageIncident(
+    val status : String,
+    val description : String,
+    val statusCode : Int,
+    val transaction_time : String,
+//
+    val data : List<DamageIncident>
+){
+    data class DamageIncident(
+        val customerName : String,
+        val phoneNum : String,
+
+        val empName : String,
+        val empPhoneNum : String
+    )
+}
+/*
+"customerName": "string",
+      "phoneNum": "string",
+      "address": {
+        "address": "string",
+        "detailAddress": "string",
+        "zipcode": "string"
+      },
+      "empName": "string",
+      "empPhoneNum": "string"
+ */
+
 /*
 "paymentId": 0,
       "payCost": 0,

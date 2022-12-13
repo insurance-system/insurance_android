@@ -129,6 +129,19 @@ class CustomerViewModel(
         }
     }
 
+    //사고 처리 접수 완료 리스트
+    private val _getDamageIncident = MutableLiveData<GetDamageIncident>()
+    val getDamageIncident : LiveData<GetDamageIncident>
+        get() = _getDamageIncident
+
+    fun getDamageIncident(userid : Long) = viewModelScope.launch(Dispatchers.IO) {
+        val response = customerRepository.getDamageIncident(userid)
+
+        if(response.isSuccessful){
+            _getDamageIncident.postValue(response.body())
+        }
+    }
+
 
     private val _insurance = MutableLiveData<String>("")
     val insurance: LiveData<String> = _insurance

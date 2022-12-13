@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_fragment_home_to_fragment_cus_connect"
             app:destination="@id/fragment_cus_connect" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_cus_expire"
+            app:destination="@id/fragment_cus_expire" />
     </fragment>
     <fragment
         android:id="@+id/fragment_mine"
@@ -353,4 +356,9 @@
         android:name="com.insandroid.insurance.ui.view.insurance.WorkInsStateBFragment"
         android:label="WorkInsStateBFragment"
         tools:layout="@layout/fragment_work_ins_state_b"/>
+    <fragment
+        android:id="@+id/fragment_cus_expire"
+        android:name="com.insandroid.insurance.ui.view.customer.CusExpireFragment"
+        android:label="CusExpireFragment"
+        tools:layout="@layout/fragment_cus_expire"/>
 </navigation>
