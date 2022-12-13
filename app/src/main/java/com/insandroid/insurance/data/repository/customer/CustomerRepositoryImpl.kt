@@ -63,4 +63,8 @@ class CustomerRepositoryImpl : CustomerRepository {
         return customerApi.postConsults(lineUpConsultRequest, userid)
     }
 
+    override suspend fun getDamageIncident(userid: Long): Response<GetDamageIncident> {
+        return customerApi.getDamageIncident(userid)
+    }
+
 }

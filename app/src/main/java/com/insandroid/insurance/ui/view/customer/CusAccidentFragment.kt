@@ -42,9 +42,9 @@ class CusAccidentFragment : Fragment(){
 
         binding.writeSmokeRg.setOnCheckedChangeListener { radioGroup, i ->
             when(i){
-                R.id.solo -> incident = "단독"
-                R.id.car_to_car -> incident = "차대차"
-                else -> incident = "차대인"
+                R.id.solo -> incident = "solo"
+                R.id.car_to_car -> incident = "carToCar"
+                else -> incident = "carToMan"
             }
         }
 
@@ -53,6 +53,7 @@ class CusAccidentFragment : Fragment(){
                 || binding.cusAccidentCarNumber.text.toString() == ""
                 || binding.cusAccidentPhone.text.toString() == ""
                 || binding.cusAccidentRegion.text.toString() ==""
+                || incident == ""
             ){
                 Toast.makeText(requireContext(), "모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }else{

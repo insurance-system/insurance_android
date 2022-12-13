@@ -136,6 +136,12 @@ class HomeFragment  : Fragment(){
             val action = HomeFragmentDirections.actionFragmentHomeToCusInsJoinFragment()
             findNavController().navigate(action)
         }
+
+        //사고 처리 접수 완료 리스트
+        binding.customerAccidentExpire.setOnClickListener {
+            val action = HomeFragmentDirections.actionFragmentHomeToFragmentCusExpire()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

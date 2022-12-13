@@ -61,5 +61,10 @@ interface CustomerRepository {
         userid: Long,
     ) : Response<PostLoginResponse>
 
+    //사고 처리 접수 완료 리스트
+    suspend fun getDamageIncident(
+        userid: Long,
+    ) : Response<GetDamageIncident>
+
 
 }

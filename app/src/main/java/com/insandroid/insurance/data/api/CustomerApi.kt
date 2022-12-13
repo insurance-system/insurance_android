@@ -73,4 +73,10 @@ interface CustomerApi {
         @Header("userid") userid: Long
     ) : Response<PostLoginResponse>
 
+    //사고 처리 접수 완료 리스트
+    @GET("/insurance-customer/damage/incident")
+    suspend fun getDamageIncident(
+        @Header("userid") userid: Long
+    ) : Response<GetDamageIncident>
+
 }
