@@ -42,11 +42,16 @@ class WorkCheckFragment : Fragment(){
         mainViewModel.getInsuranceTest(InsuranceApplication.prefs.getString("id", "").toLong())
 
         mainViewModel.getInsuranceTest.observe(viewLifecycleOwner) {
-            val result = it.data
-            insuranceTestAdapter.submitList(result)
+            if(it.errorCode == "A0001"){
+                binding.non.visibility = View.VISIBLE
+            }else{
+                binding.non.visibility = View.INVISIBLE
+                val result = it.data
+                insuranceTestAdapter.submitList(result)
+            }
         }
-
         setUpRecyclerView()
+
 
     }
 
